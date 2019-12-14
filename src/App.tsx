@@ -1,26 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { SimpleTopAppBar, TopAppBarFixedAdjust } from '@rmwc/top-app-bar';
+import { Drawer, DrawerHeader, DrawerTitle, DrawerContent, DrawerSubtitle } from '@rmwc/drawer';
+import { List, ListItem } from '@rmwc/list'
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <SimpleTopAppBar title="Reactive Exercises" />
+            <TopAppBarFixedAdjust />
+            <Drawer>
+                <DrawerHeader>
+                    <DrawerTitle>Exercises</DrawerTitle>
+                    <DrawerSubtitle>Learn Some ReactiveX</DrawerSubtitle>
+                </DrawerHeader>
+                <DrawerContent>
+                    <List>
+                        <ListItem>Fetch Data</ListItem>
+                        <ListItem>Pluck the Names</ListItem>
+                    </List>
+                </DrawerContent>
+            </Drawer>
+        </div>
+    );
 }
 
 export default App;
