@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { SimpleTopAppBar, TopAppBarFixedAdjust } from '@rmwc/top-app-bar';
-import { Drawer, DrawerHeader, DrawerTitle, DrawerContent, DrawerSubtitle } from '@rmwc/drawer';
+import { Drawer, DrawerHeader, DrawerTitle,
+         DrawerContent, DrawerSubtitle, DrawerAppContent } from '@rmwc/drawer';
 import { List, ListItem } from '@rmwc/list'
 
 const App: React.FC = () => {
@@ -10,18 +10,25 @@ const App: React.FC = () => {
         <div className="App">
             <SimpleTopAppBar title="Reactive Exercises" />
             <TopAppBarFixedAdjust />
-            <Drawer>
-                <DrawerHeader>
-                    <DrawerTitle>Exercises</DrawerTitle>
-                    <DrawerSubtitle>Learn Some ReactiveX</DrawerSubtitle>
-                </DrawerHeader>
-                <DrawerContent>
-                    <List>
-                        <ListItem>Fetch Data</ListItem>
-                        <ListItem>Pluck the Names</ListItem>
-                    </List>
-                </DrawerContent>
-            </Drawer>
+            <div>
+              <Drawer dismissible open={true}>
+                  <DrawerHeader>
+                      <DrawerTitle>Exercises</DrawerTitle>
+                      <DrawerSubtitle>Learn Some ReactiveX</DrawerSubtitle>
+                  </DrawerHeader>
+                  <DrawerContent>
+                      <List>
+                          <ListItem>Fetch Data</ListItem>
+                          <ListItem>Pluck the Names</ListItem>
+                      </List>
+                  </DrawerContent>
+              </Drawer>
+              <DrawerAppContent>
+                  <div style={{padding: '48px'}}>
+                      <h1>I did it</h1>
+                  </div>
+              </DrawerAppContent>
+            </div>
         </div>
     );
 }
