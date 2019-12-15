@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { SimpleTopAppBar, TopAppBarFixedAdjust } from '@rmwc/top-app-bar';
 import { Drawer, DrawerHeader, DrawerTitle,
@@ -6,6 +6,12 @@ import { Drawer, DrawerHeader, DrawerTitle,
 import { List, ListItem } from '@rmwc/list'
 
 const App: React.FC = () => {
+    const [response, setResponse] = useState({});
+    fetch("/posts")
+        .then(posts => {
+            posts.json().then(json => setResponse(json))
+        });
+
     return (
         <div className="App">
             <SimpleTopAppBar title="Reactive Exercises" />
@@ -26,6 +32,7 @@ const App: React.FC = () => {
               <DrawerAppContent>
                   <div style={{padding: '48px'}}>
                       <h1>I did it</h1>
+                      <p>{JSON.stringify(response)}</p>
                   </div>
               </DrawerAppContent>
             </div>

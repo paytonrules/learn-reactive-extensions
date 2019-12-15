@@ -2,6 +2,7 @@
   "name": "learn-reactive-extensions",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@rmwc/drawer": "^5.7.2",
     "@rmwc/list": "^5.7.2",
