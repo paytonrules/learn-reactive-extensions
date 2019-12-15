@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { SimpleTopAppBar, TopAppBarFixedAdjust } from '@rmwc/top-app-bar';
 import { Drawer, DrawerHeader, DrawerTitle,
@@ -7,10 +7,12 @@ import { List, ListItem } from '@rmwc/list'
 
 const App: React.FC = () => {
     const [response, setResponse] = useState({});
-    fetch("/posts")
-        .then(posts => {
-            posts.json().then(json => setResponse(json))
-        });
+    useEffect(() => {
+        fetch("/posts")
+            .then(posts => {
+                posts.json().then(json => setResponse(json))
+            });
+    }, []);
 
     return (
         <div className="App">
