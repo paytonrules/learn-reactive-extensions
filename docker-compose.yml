@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  server:
+    image: node:12.13.1-alpine
+    container_name: learn-rx-node
+    working_dir: /code
+    volumes:
+      - .:/code
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    entrypoint:
+      - /bin/sh
+      - -c
+      - yarn start
