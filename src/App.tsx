@@ -1,3 +1,4 @@
+import 'whatwg-fetch';
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { SimpleTopAppBar, TopAppBarFixedAdjust } from '@rmwc/top-app-bar';
