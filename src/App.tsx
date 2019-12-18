@@ -7,9 +7,21 @@ import { Drawer, DrawerHeader, DrawerTitle,
 import { List, ListItem } from '@rmwc/list'
 import { BrowserRouter as Router,
          Switch, Route, Link } from 'react-router-dom';
+import { fromFetch } from 'rxjs/fetch';
+import { flatMap } from 'rxjs/operators'
 
 const ObserverComponent: React.FC = () => {
     const [firstRow, setFirstRow] = useState(['one', 'two'])
+
+    useEffect( () => {
+        fromFetch('/posts').pipe(
+            flatMap(response => response.json())
+        ).subscribe({
+            next: result => {
+                setFirstRow(result[0]["title"])
+            }
+        })
+    }, []);
 
     return (
         <DrawerAppContent>
