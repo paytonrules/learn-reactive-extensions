@@ -10,7 +10,7 @@ import { BrowserRouter as Router,
 import { fromFetch } from 'rxjs/fetch';
 import { flatMap } from 'rxjs/operators'
 
-const ObserverComponent: React.FC = () => {
+const ObserverComponent: React.FC = props => {
     const [firstRow, setFirstRow] = useState(['one', 'two'])
 
     useEffect( () => {
@@ -27,6 +27,7 @@ const ObserverComponent: React.FC = () => {
         <DrawerAppContent>
             <div style={{padding: '48px'}} >
                 <p>{firstRow}</p>
+                {props.children}
             </div>
         </DrawerAppContent>
     )
@@ -54,7 +55,9 @@ const App: React.FC = () => {
                 </Drawer>
                 <Switch>
                     <Route path="/fetch">
-                        <ObserverComponent />
+                        <ObserverComponent>
+                            <h1>How are ya?</h1>
+                        </ObserverComponent>
                     </Route>
                     <Route path="/">
                         <ObserverComponent />
