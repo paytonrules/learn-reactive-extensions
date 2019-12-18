@@ -8,15 +8,20 @@ import { List, ListItem } from '@rmwc/list'
 import { BrowserRouter as Router,
          Switch, Route, Link } from 'react-router-dom';
 
-const App: React.FC = () => {
-    const [response, setResponse] = useState({});
-    useEffect(() => {
-        fetch("/posts")
-            .then(posts => {
-                posts.json().then(json => setResponse(json))
-            });
-    }, []);
+const ObserverComponent: React.FC = () => {
+    const [firstRow, setFirstRow] = useState(['one', 'two'])
 
+    return (
+        <DrawerAppContent>
+            <div style={{padding: '48px'}} >
+                <p>{firstRow}</p>
+            </div>
+        </DrawerAppContent>
+    )
+
+}
+
+const App: React.FC = () => {
     return (
         <Router>
           <div className="App">
@@ -37,17 +42,10 @@ const App: React.FC = () => {
                 </Drawer>
                 <Switch>
                     <Route path="/fetch">
-                        <DrawerAppContent>
-                          <p>Fetch it money man</p>
-                        </DrawerAppContent>
+                        <ObserverComponent />
                     </Route>
                     <Route path="/">
-                        <DrawerAppContent>
-                            <div style={{padding: '48px'}}>
-                                <h1>I did it</h1>
-                                <p>{JSON.stringify(response)}</p>
-                            </div>
-                        </DrawerAppContent>
+                        <ObserverComponent />
                     </Route>
                 </Switch>
               </div>
