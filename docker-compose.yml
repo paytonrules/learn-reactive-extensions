@@ -13,4 +13,4 @@ services:
     entrypoint:
       - /bin/sh
       - -c
-      - yarn install && yarn start
+      - yarn start
