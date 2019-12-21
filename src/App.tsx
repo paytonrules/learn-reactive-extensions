@@ -7,7 +7,7 @@ import { Drawer, DrawerHeader, DrawerTitle,
 import { List, ListItem } from '@rmwc/list'
 import { BrowserRouter as Router,
          Switch, Route, Link } from 'react-router-dom';
-import { Subscribe, Filter, Directions } from './exercises/components';
+import { Subscribe, TakeTwo, Directions } from './exercises/components';
 
 //const Exercise: React.FC<ExampleProps> = props => {
 //    const [firstRow, setFirstRow] = useState(['one', 'two'])
@@ -53,8 +53,8 @@ const App: React.FC = () => {
                             <Link to="/subscribe">
                                 <ListItem>Subscribe</ListItem>
                             </Link>
-                            <Link to="/filter">
-                                <ListItem>Exercise 2</ListItem>
+                            <Link to="/take">
+                                <ListItem>Take 2</ListItem>
                             </Link>
                         </List>
                     </DrawerContent>
@@ -63,8 +63,8 @@ const App: React.FC = () => {
                     <Route path="/subscribe">
                         <Subscribe />
                     </Route>
-                    <Route path="/filter">
-                        <Filter />
+                    <Route path="/take">
+                        <TakeTwo />
                     </Route>
                     <Route path="/">
                         <Directions />

@@ -94,6 +94,7 @@ export const TakeTwo: React.FC = () => {
     }, []);
 
     let answerColor = _.isEqual(entries, [9, 8]) ? rightAnswer : wrongAnswer;
+    let entriesAsRows: number[][] = _.toArray(_.chunk(entries, 1))
     return (
         <DrawerAppContent>
             <Grid>
@@ -115,7 +116,7 @@ export const TakeTwo: React.FC = () => {
                     <p>
                         Keep in mind that operators can be called two different ways. One is to call them directly, passing them their parameters which then return a function
                         that takes an Observable. This is awkward and the more common way to make the call is to use the <code>pipe</code> operator, and pass operators
-                        to the pipe like so: <code>observable.pipe(map(val => val * 2))</code>.
+                        to the pipe like so: <code>observable.pipe(map(val => val * 2))</code>. {_.chunk(entries, 1)}
                     </p>
                 </GridCell>
                 <GridCell style={{paddingTop: "4em"}}>
@@ -129,7 +130,7 @@ export const TakeTwo: React.FC = () => {
 
                         } }
                         headers={[['Your Values']]}
-                        data={[entries]} />
+                        data={entriesAsRows} />
                 </GridCell>
             </Grid>
         </DrawerAppContent>);
