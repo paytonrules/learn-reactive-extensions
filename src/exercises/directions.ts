@@ -27,5 +27,5 @@ In the first exercise we subscribed to an Observable and then made a callback in
 
 In this exercise the function will take an Observable, modify it using your first RxJS operator (take), and return it to be further processed by the react app. Specifically this app will take first two items from the Observable. It's a straightforward operator that takes the first x items emitted from the Observable.
 
-Keep in mind that operators can be called two different ways. One is to call them directly, passing them their parameters which then return a function that takes an Observable. This is awkward and the more common way to make the call is to use the \`pipe\` operator, and pass operators to the pipe like so: \`observable.pipe(map(val => val * 2))\`. {_.chunk(entries, 1)}
+Keep in mind that operators can be called two different ways. One is to call them directly, passing them their parameters which then return a function that takes an Observable. This is awkward and the more common way to make the call is to use the \`pipe\` operator, and pass operators to the pipe like so: \`observable.pipe(map(val => val * 2))\`.
 `;
