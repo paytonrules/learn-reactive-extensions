@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { DrawerAppContent } from '@rmwc/drawer';
 import { of } from 'rxjs';
-import { subscribePuzzle } from './puzzles';
+import * as puzzles from './puzzles';
 import { Grid, GridCell } from '@rmwc/grid';
 import { SimpleDataTable } from '@rmwc/data-table';
 import '@rmwc/data-table/data-table.css';
+import _ from 'underscore';
 
 const rightAnswer = 'chartreuse';
 const wrongAnswer = 'indianRed';
@@ -38,8 +39,8 @@ export const Directions: React.FC = () => {
 export const Subscribe: React.FC = props => {
     const [firstEntry, setFirstEntry] = useState(-1);
 
-    useEffect(() => subscribePuzzle(of(1), setFirstEntry), []);
-    let answerColor = (firstEntry == 1) ? rightAnswer : wrongAnswer;
+    useEffect(() => puzzles.subscribe(of(1), setFirstEntry), []);
+    let answerColor = (firstEntry === 1) ? rightAnswer : wrongAnswer;
     return (
         <DrawerAppContent>
             <Grid>
@@ -83,6 +84,53 @@ export const Subscribe: React.FC = props => {
     );
 }
 
-export const Filter: React.FC = props => {
-    return <DrawerAppContent>also hi</DrawerAppContent>
+export const TakeTwo: React.FC = () => {
+    const [entries, setEntries] = useState<number[]>([]);
+
+    useEffect(() => {
+        puzzles
+            .takeTwo(of(9, 8, 7))
+            .subscribe(num => setEntries(e => [...e, num.valueOf()]));
+    }, []);
+
+    let answerColor = _.isEqual(entries, [9, 8]) ? rightAnswer : wrongAnswer;
+    return (
+        <DrawerAppContent>
+            <Grid>
+                <GridCell>
+                    <h2>Take</h2>
+                    <p>
+                        In the first exercise we subscribed to an Observable and then made a callback into a React application. This isn't how you'll want to use
+                        Observable's typically, indeed you could have just made the callback directy. Part of the power of Observables is that you can return them as
+                        values, and that's what we'll be doing in this second exercise. The parent component will handle the subscription, which is a more typical way
+                        to use an Observable.
+                    </p>
+
+                    <p>
+                        In this exercise the function will take an Observable, modify it using your first RxJS operator (take), and return it to be further processed by
+                        the react app. Specifically this app will take first two items from the Observable. It's a straightforward operator that takes the first x
+                        items emitted from the Observable.
+                    </p>
+
+                    <p>
+                        Keep in mind that operators can be called two different ways. One is to call them directly, passing them their parameters which then return a function
+                        that takes an Observable. This is awkward and the more common way to make the call is to use the <code>pipe</code> operator, and pass operators
+                        to the pipe like so: <code>observable.pipe(map(val => val * 2))</code>.
+                    </p>
+                </GridCell>
+                <GridCell style={{paddingTop: "4em"}}>
+                    <SimpleDataTable
+                        getCellProps={(_, __, isHead) => {
+                            if (!isHead) {
+                                return { style: { backgroundColor: answerColor } };
+                            } else {
+                                return {};
+                            }
+
+                        } }
+                        headers={[['Your Values']]}
+                        data={[entries]} />
+                </GridCell>
+            </Grid>
+        </DrawerAppContent>);
 }
