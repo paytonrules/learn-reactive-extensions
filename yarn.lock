@@ -1130,6 +1130,11 @@
     "@material/theme" "^3.1.0"
     tslib "^1.9.3"
 
+"@material/layout-grid@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@material/layout-grid/-/layout-grid-3.1.0.tgz#7f3305f3f236fd6a347ff9ae1440640ff64e84d8"
+  integrity sha512-//9LggCNibXNtUkqijvDBK85fL1GSB+uIPYVx6ATToqDej1/35eedUxDSsw/ugm7zZ0OSyPLimbBuNMMnQtlqQ==
+
 "@material/list@^3.1.0", "@material/list@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@material/list/-/list-3.2.0.tgz#f14c277f0ffe09d4f0875f0add6daa8b87633d36"
@@ -1229,6 +1234,15 @@
   integrity sha512-9SbR63oR/MLSIdprjrk0GUEM5UKSZwIt39sZcB7M/7dBN0m5EelEo72/Pc42j05hSzRHa+oqZRJJ0dGMwQgaZw==
   dependencies:
     "@material/drawer" "^3.1.1"
+    "@rmwc/base" "^5.7.2"
+    "@rmwc/types" "^5.6.0"
+
+"@rmwc/grid@^5.7.2":
+  version "5.7.2"
+  resolved "https://registry.yarnpkg.com/@rmwc/grid/-/grid-5.7.2.tgz#90ee712296413fc3e939ef6026d836103c81fc3a"
+  integrity sha512-qBcwFkQ1SVSq9dK5lK9m1od3oys595otMpoSuXfr07gyXbn4oPaUtk25uWCkDuMaf6i8iEyGrvJcfo0KNT2s7g==
+  dependencies:
+    "@material/layout-grid" "^3.1.0"
     "@rmwc/base" "^5.7.2"
     "@rmwc/types" "^5.6.0"
 

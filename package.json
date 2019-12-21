@@ -5,6 +5,7 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@rmwc/drawer": "^5.7.2",
+    "@rmwc/grid": "^5.7.2",
     "@rmwc/list": "^5.7.2",
     "@rmwc/top-app-bar": "^5.7.2",
     "@testing-library/jest-dom": "^4.2.4",
@@ -21,6 +22,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "rxjs": "^6.5.3",
+    "serverless-javascript": "^2.1.1",
     "typescript": "~3.7.2",
     "whatwg-fetch": "^3.0.0"
   },
