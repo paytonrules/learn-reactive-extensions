@@ -1,4 +1,3 @@
-import 'whatwg-fetch';
 import React from 'react';
 import './App.css';
 import { SimpleTopAppBar, TopAppBarFixedAdjust } from '@rmwc/top-app-bar';
@@ -7,31 +6,7 @@ import { Drawer, DrawerHeader, DrawerTitle,
 import { List, ListItem } from '@rmwc/list'
 import { BrowserRouter as Router,
          Switch, Route, Link } from 'react-router-dom';
-import { Subscribe, TakeTwo, Directions } from './exercises/components';
-
-//const Exercise: React.FC<ExampleProps> = props => {
-//    const [firstRow, setFirstRow] = useState(['one', 'two'])
-//
-//    useEffect( () => {
-//        fromFetch('/posts').pipe(
-//            flatMap(response => response.json())
-//        ).subscribe({
-//            next: result => {
-//                setFirstRow(result[0]["title"])
-//            }
-//        })
-//    }, []);
-//
-//    return (
-//        <DrawerAppContent>
-//            <div style={{padding: '48px'}} >
-//                <p>{firstRow}</p>
-//                {props.children}
-//            </div>
-//        </DrawerAppContent>
-//    )
-//
-//}*/
+import { Subscribe, TakeTwo, Directions, Fetch } from './exercises/components';
 
 const App: React.FC = () => {
     return (
@@ -56,6 +31,9 @@ const App: React.FC = () => {
                             <Link to="/take">
                                 <ListItem>Take 2</ListItem>
                             </Link>
+                            <Link to="/fetch">
+                                <ListItem>Fetch</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
@@ -65,6 +43,9 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/take">
                         <TakeTwo />
+                    </Route>
+                    <Route path="/fetch">
+                        <Fetch />
                     </Route>
                     <Route path="/">
                         <Directions />

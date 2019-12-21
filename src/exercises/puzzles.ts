@@ -1,5 +1,7 @@
-import { Observable, of } from 'rxjs';
+import 'whatwg-fetch';
+import { Observable, of, empty } from 'rxjs';
 import { take  } from 'rxjs/operators';
+import { fromFetch } from 'rxjs/fetch';
 import { Dispatch, SetStateAction } from 'react';
 
 export const subscribe = (observable: Observable<Number>, cb:Dispatch<SetStateAction<number>>) => {
@@ -7,4 +9,8 @@ export const subscribe = (observable: Observable<Number>, cb:Dispatch<SetStateAc
 
 export const takeTwo = (observable: Observable<Number>): Observable<Number> => {
     return observable;
+}
+
+export const fetch = (url: string): Observable<Response> => {
+    return empty();
 }

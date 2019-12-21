@@ -8,9 +8,7 @@ import { Grid, GridCell } from '@rmwc/grid';
 import { SimpleDataTable } from '@rmwc/data-table';
 import '@rmwc/data-table/data-table.css';
 import _ from 'underscore';
-
-const rightAnswer = 'chartreuse';
-const wrongAnswer = 'indianRed';
+import { flatMap } from 'rxjs/operators';
 
 export const Directions: React.FC = () => {
     return (
@@ -24,6 +22,8 @@ export const Directions: React.FC = () => {
     );
 }
 
+const rightAnswer = 'chartreuse';
+const wrongAnswer = 'indianRed';
 export const Subscribe: React.FC = props => {
     const [firstEntry, setFirstEntry] = useState(-1);
 
@@ -82,6 +82,43 @@ export const TakeTwo: React.FC = () => {
                         } }
                         headers={[['Your Values']]}
                         data={entriesAsRows} />
+                </GridCell>
+            </Grid>
+        </DrawerAppContent>);
+}
+
+export const Fetch: React.FC = () => {
+    const [response, setResponse] = useState({});
+
+    useEffect(() => {
+        puzzles
+            .fetch('/posts')
+            .pipe(
+                flatMap(response => response.json())
+            )
+            .subscribe(body => setResponse(body[0]));
+    }, []);
+
+    let expectedResult = {id:1, title:"json-server", author: "typicode"};
+    let answerColor = _.isEqual(expectedResult, response) ? rightAnswer : wrongAnswer;
+    return (
+        <DrawerAppContent>
+            <Grid>
+                <GridCell>
+                    <ReactMarkdown source={directions.fetch} />
+                </GridCell>
+                <GridCell style={{paddingTop: "4em"}}>
+                    <SimpleDataTable
+                        getCellProps={(_, __, isHead) => {
+                            if (!isHead) {
+                                return { style: { backgroundColor: answerColor } };
+                            } else {
+                                return {};
+                            }
+
+                        } }
+                        headers={[['Your Values']]}
+                        data={[[JSON.stringify(response)]]} />
                 </GridCell>
             </Grid>
         </DrawerAppContent>);
