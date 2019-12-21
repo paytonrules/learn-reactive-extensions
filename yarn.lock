@@ -1228,6 +1228,15 @@
     hyperform "^0.9.9"
     mutation-observer "^1.0.3"
 
+"@rmwc/data-table@^5.7.2":
+  version "5.7.2"
+  resolved "https://registry.yarnpkg.com/@rmwc/data-table/-/data-table-5.7.2.tgz#0ee332a8a4fe986092f5562fb9e343412706cdcf"
+  integrity sha512-EnvHdHT7KEVKM8UXMOy7GzeYdJgAhQdxFMWGJ5tkwHXwAXTKQnkezpWX1phZ3NKzom+DAeX2W2k62wvz4+2UiQ==
+  dependencies:
+    "@rmwc/base" "^5.7.2"
+    "@rmwc/icon" "^5.7.2"
+    "@rmwc/types" "^5.6.0"
+
 "@rmwc/drawer@^5.7.2":
   version "5.7.2"
   resolved "https://registry.yarnpkg.com/@rmwc/drawer/-/drawer-5.7.2.tgz#682a6331eccb20b29b166b6ed71f98aea67741f7"
@@ -9794,6 +9803,11 @@ serialize-javascript@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-2.1.0.tgz#9310276819efd0eb128258bb341957f6eb2fc570"
   integrity sha512-a/mxFfU00QT88umAJQsNWOnUKckhNCqOl028N48e7wFmo2/EHpTo9Wso+iJJCMrQnmFvcjto5RJdAHEvVhcyUQ==
+
+serialize-javascript@^2.1.1:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-2.1.2.tgz#ecec53b0e0317bdc95ef76ab7074b7384785fa61"
+  integrity sha512-rs9OggEUF0V4jUSecXazOYsLfu7OGK2qIn3c7IPBiffz32XniEp/TX9Xmc9LQfK2nQ2QKHvZ2oygKUGU0lG4jQ==
 
 serve-index@^1.9.1:
   version "1.9.1"
