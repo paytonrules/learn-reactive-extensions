@@ -11,4 +11,4 @@ this command:
 That will take a while as it installs dependencies. After that you can run the
 application with `docker-compose up`.
 
-The app will start on http://localhost:3000
+The app will start on http://localhost:3000.
