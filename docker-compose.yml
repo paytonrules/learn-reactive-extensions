@@ -2,7 +2,9 @@ version: '3.7'
 
 services:
   server:
-    image: node:12.13.1-alpine
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
     container_name: learn-rx-node
     working_dir: /code
     volumes:
