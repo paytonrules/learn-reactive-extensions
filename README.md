@@ -2,13 +2,9 @@
 
 ## Getting Started
 
-This exercise is best done with the docker setup. The first time you run the app
-you'll need to make sure you install the dependencies, so you can start it with
-this command:
+This exercise is best done with the docker setup. Start the app by using
+`docker-compose up`. The first time will take a while as it installs
+dependencies. 
+After that you can re-run the application with `docker-compose up`.
 
-`docker-compose run server yarn install`
-
-That will take a while as it installs dependencies. After that you can run the
-application with `docker-compose up`.
-
-The app will start on http://localhost:3000.
+The app will start on http://localhost:3000. Futher directions are found there.
