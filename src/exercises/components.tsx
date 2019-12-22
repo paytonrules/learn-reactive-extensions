@@ -63,7 +63,7 @@ export const Subscribe: React.FC = props => {
     useEffect(() => puzzles.subscribe(of(1), setFirstEntry), []);
     return (
         <ExerciseComponent
-            directions={directions.fetch}
+            directions={directions.subscribe}
             headers={[['Your Value']]}
             data={[[`${firstEntry}`]]}
             expectedResult={1}
