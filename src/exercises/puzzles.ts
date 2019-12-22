@@ -1,6 +1,6 @@
 import 'whatwg-fetch';
 import { Observable, of, empty } from 'rxjs';
-import { take  } from 'rxjs/operators';
+import { take, map  } from 'rxjs/operators';
 import { fromFetch } from 'rxjs/fetch';
 import { Dispatch, SetStateAction } from 'react';
 
@@ -13,4 +13,8 @@ export const takeTwo = (observable: Observable<Number>): Observable<Number> => {
 
 export const fetch = (url: string): Observable<Response> => {
     return empty();
+}
+
+export const mapStatus = (invalidUrl: string): Observable<number> => {
+    return of(1);
 }

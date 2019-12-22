@@ -113,3 +113,22 @@ export const Fetch: React.FC = () => {
             result={response} />
     );
 }
+
+export const MapStatusCode: React.FC = () => {
+    const [statusCode, setStatusCode] = useState(200)
+
+    useEffect(() => {
+        puzzles
+            .mapStatus('/invalidUrl')
+            .subscribe(code => setStatusCode(code))
+    }, []);
+
+    return (
+        <ExerciseComponent
+            directions={directions.mapStatusCode}
+            headers={[['Your Error']]}
+            data={[[[statusCode]]]}
+            expectedResult={404}
+            result={statusCode} />
+    )
+}

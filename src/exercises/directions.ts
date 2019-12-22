@@ -33,5 +33,15 @@ Keep in mind that operators can be called two different ways. One is to call the
 export const fetch = `
 ## Fetch
 
-Now that a function is returning an Observable we are partway to seeing the power of Reactive Extensions, but where do Observable's come from? They can come from everywhere but in this exercise you'll use the RxJS \`fromFetch\` function to make a web request and return an Observable. The function currently returns an \`empty\` which is quite useful for testing but not very useful in real code.
+Now that a function is returning an Observable we are partway to seeing the power of Reactive Extensions, but where do Observable's come from? Well they can be created anywhere but in this exercise you'll use the the RxJS \`fromFetch\` function to create an Observable that represents make a web request and return an Observable. The function currently returns an \`empty\` which is quite useful for testing but not very useful in real code.
+
+Replace the empty Observable with an Observable representing the web request and you'll see this test turn green with a JSON response.
+`
+
+export const mapStatusCode = `
+## Map Status Code
+
+You're using the RxJS \`fromFetch\` function to create an Observable from a URL, and the calling component is subscribing that result and using it. Congratulations! At this point you could use Observables anywhere you use Promises with no trouble. For the next step you'll being using your first Reactive *operator* to convert the response to a value: - map.
+
+Specifically in this case you want to return an Observable that maps the response object to its status code (which can be found on the response object). Remember the \'pipe\' operator? You'll need that too. Don't worry, it's not as much as it sounds.
 `

@@ -6,7 +6,7 @@ import { Drawer, DrawerHeader, DrawerTitle,
 import { List, ListItem } from '@rmwc/list'
 import { BrowserRouter as Router,
          Switch, Route, Link } from 'react-router-dom';
-import { Subscribe, TakeTwo, Directions, Fetch } from './exercises/components';
+import * as ExerciseComponents from './exercises/components';
 
 const App: React.FC = () => {
     return (
@@ -34,21 +34,27 @@ const App: React.FC = () => {
                             <Link to="/fetch">
                                 <ListItem>Fetch</ListItem>
                             </Link>
+                            <Link to="/mapStatus">
+                                <ListItem>Map Status</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
                 <Switch>
                     <Route path="/subscribe">
-                        <Subscribe />
+                        <ExerciseComponents.Subscribe />
                     </Route>
                     <Route path="/take">
-                        <TakeTwo />
+                        <ExerciseComponents.TakeTwo />
                     </Route>
                     <Route path="/fetch">
-                        <Fetch />
+                        <ExerciseComponents.Fetch />
+                    </Route>
+                    <Route path="/mapStatus">
+                        <ExerciseComponents.MapStatusCode />
                     </Route>
                     <Route path="/">
-                        <Directions />
+                        <ExerciseComponents.Directions />
                     </Route>
                 </Switch>
               </div>
