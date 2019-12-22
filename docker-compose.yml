@@ -10,14 +10,5 @@ services:
       - /usr/src/app/node_modules
     ports:
       - "3000:3000"
-    command: yarn start
-  server:
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    ports:
       - "3001:3001"
-    command: yarn start-web
+    command: yarn start
