@@ -5,14 +5,9 @@ services:
     build:
       context: .
       dockerfile: ./docker/Dockerfile
-    container_name: learn-rx-node
-    working_dir: /code
     volumes:
-      - .:/code
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - "3000:3000"
       - "3001:3001"
-    entrypoint:
-      - /bin/sh
-      - -c
-      - yarn start

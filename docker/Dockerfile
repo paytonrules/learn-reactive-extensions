@@ -1,4 +1,11 @@
 FROM node:12.13.1-alpine
 
-ADD package.json /code/package.json
-RUN cd /code && yarn install
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+COPY yarn.lock ./
+RUN yarn install
+
+COPY . .
+
+CMD ["yarn" "start"]
