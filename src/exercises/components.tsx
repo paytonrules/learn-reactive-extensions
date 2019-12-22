@@ -10,6 +10,33 @@ import '@rmwc/data-table/data-table.css';
 import _ from 'underscore';
 import { flatMap } from 'rxjs/operators';
 
+const ExerciseComponent: React.FC<ExerciseProps> = (props: ExerciseProps) => {
+    const rightAnswer = 'chartreuse';
+    const wrongAnswer = 'indianRed';
+    let answerColor = _.isEqual(props.expectedResult, props.result) ? rightAnswer : wrongAnswer;
+    return (
+        <DrawerAppContent>
+            <Grid>
+                <GridCell>
+                    <ReactMarkdown source={props.directions} />
+                </GridCell>
+                <GridCell style={{paddingTop: "4em"}}>
+                    <SimpleDataTable
+                        getCellProps={(_, __, isHead) => {
+                            if (!isHead) {
+                                return { style: { backgroundColor: answerColor } };
+                            } else {
+                                return {};
+                            }
+                        } }
+                        headers={props.headers}
+                        data={props.data}  />
+                </GridCell>
+            </Grid>
+        </DrawerAppContent>
+    )
+}
+
 export const Directions: React.FC = () => {
     return (
         <DrawerAppContent>
@@ -22,34 +49,25 @@ export const Directions: React.FC = () => {
     );
 }
 
-const rightAnswer = 'chartreuse';
-const wrongAnswer = 'indianRed';
+interface ExerciseProps {
+    directions: string,
+    headers: string[][],
+    data: any[][],
+    expectedResult: any,
+    result: any
+}
+
 export const Subscribe: React.FC = props => {
     const [firstEntry, setFirstEntry] = useState(-1);
 
     useEffect(() => puzzles.subscribe(of(1), setFirstEntry), []);
-    let answerColor = _.isEqual(firstEntry, 1) ? rightAnswer : wrongAnswer;
     return (
-        <DrawerAppContent>
-            <Grid>
-                <GridCell>
-                    <ReactMarkdown source={directions.subscribe} />
-                </GridCell>
-                <GridCell style={{paddingTop: "4em"}}>
-                    <SimpleDataTable
-                        getCellProps={(_, __, isHead) => {
-                            if (!isHead) {
-                                return { style: { backgroundColor: answerColor } };
-                            } else {
-                                return {};
-                            }
-
-                        } }
-                        headers={[['Your Value']]}
-                        data={[[firstEntry]]} />
-                </GridCell>
-            </Grid>
-        </DrawerAppContent>
+        <ExerciseComponent
+            directions={directions.fetch}
+            headers={[['Your Value']]}
+            data={[[`${firstEntry}`]]}
+            expectedResult={1}
+            result={firstEntry} />
     );
 }
 
@@ -62,30 +80,17 @@ export const TakeTwo: React.FC = () => {
             .subscribe(num => setEntries(e => [...e, num.valueOf()]));
     }, []);
 
-    let answerColor = _.isEqual(entries, [9, 8]) ? rightAnswer : wrongAnswer;
     let entriesAsRows: number[][] = _.toArray(_.chunk(entries, 1))
     return (
-        <DrawerAppContent>
-            <Grid>
-                <GridCell>
-                    <ReactMarkdown source={directions.takeTwo} />
-                </GridCell>
-                <GridCell style={{paddingTop: "4em"}}>
-                    <SimpleDataTable
-                        getCellProps={(_, __, isHead) => {
-                            if (!isHead) {
-                                return { style: { backgroundColor: answerColor } };
-                            } else {
-                                return {};
-                            }
-
-                        } }
-                        headers={[['Your Values']]}
-                        data={entriesAsRows} />
-                </GridCell>
-            </Grid>
-        </DrawerAppContent>);
+        <ExerciseComponent
+            directions={directions.takeTwo}
+            headers={[['Your Values']]}
+            data={entriesAsRows}
+            expectedResult={[9, 8]}
+            result={entries} />
+    );
 }
+
 
 export const Fetch: React.FC = () => {
     const [response, setResponse] = useState({});
@@ -99,27 +104,12 @@ export const Fetch: React.FC = () => {
             .subscribe(body => setResponse(body[0]));
     }, []);
 
-    let expectedResult = {id:1, title:"json-server", author: "typicode"};
-    let answerColor = _.isEqual(expectedResult, response) ? rightAnswer : wrongAnswer;
     return (
-        <DrawerAppContent>
-            <Grid>
-                <GridCell>
-                    <ReactMarkdown source={directions.fetch} />
-                </GridCell>
-                <GridCell style={{paddingTop: "4em"}}>
-                    <SimpleDataTable
-                        getCellProps={(_, __, isHead) => {
-                            if (!isHead) {
-                                return { style: { backgroundColor: answerColor } };
-                            } else {
-                                return {};
-                            }
-
-                        } }
-                        headers={[['Your Values']]}
-                        data={[[JSON.stringify(response)]]} />
-                </GridCell>
-            </Grid>
-        </DrawerAppContent>);
+        <ExerciseComponent
+            directions={directions.fetch}
+            headers={[['Your Values']]}
+            data={[[JSON.stringify(response)]]}
+            expectedResult={{id:1, title:"json-server", author: "typicode"}}
+            result={response} />
+    );
 }
