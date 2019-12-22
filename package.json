@@ -31,7 +31,8 @@
     "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
-    "start": "json-server --watch mock-data/db.json --port 3001 & react-scripts start",
+    "start": "react-scripts start",
+    "start-web": "json-server --watch mock-data/db.json --port 3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
