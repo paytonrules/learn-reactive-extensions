@@ -17,7 +17,7 @@ The subscribe function takes one parameter - a callback, which is passed the val
 
 For this first exercise you'll take the value emitted from the Observable, and send it back to the React App via the callback function.
 
-**Important:** The Observable emits wrapper \`Number\` objects. The React callback expects a \`number\` primitive so you'll need to dconvert the \`Number\` to a \`number\` with the \`valueOf\` method.
+**Important:** The Observable emits wrapper \`Number\` objects. The React callback expects a \`number\` primitive so you'll need to convert the \`Number\` to a \`number\` with the \`valueOf\` method.
 `;
 
 export const takeTwo = `
@@ -53,7 +53,7 @@ Now that you've begun using operators you'll naturally want to combine them toge
 
 One of the advantages to this style of programming is that it can lead to very consice pipelines, but unfortunately it's not always clear how to do anything that is not "pure" in an operation. Consider debugging. In a long pipeline you may want to \`console.log\` the state of an emitted value to see it before and after the operations. You could use map to do that, but you'd need to ensure you always returned the same value from the map. It's hacky.
 
-Enter \`tap\` (or \`do\` or \`doOnNext\` in other languages. \'tap\' passes the value to a function for the purposes of side effects (such as \'console.log\') but does not modify the value. In this exercise use \'tap\' to log each entry in the passed in observable, without modifying it.`
+Enter \`tap\` (or \`do\` or \`doOnNext\` in other languages. \`tap\` passes the value to a function for the purposes of side effects (such as \`console.log\`) but does not modify the value. In this exercise use \`tap\` to log each entry in the passed in observable, without modifying it.`
 ;
 
 export const getTheJSON = `

@@ -17,7 +17,7 @@ const ExerciseComponent: React.FC<ExerciseProps> = (props: ExerciseProps) => {
     return (
         <DrawerAppContent>
             <Grid>
-                <GridCell>
+                <GridCell span={6}>
                     <ReactMarkdown source={props.directions} />
                 </GridCell>
                 <GridCell style={{paddingTop: "4em"}}>
@@ -157,7 +157,7 @@ export const TapToConsoleLog: React.FC = () => {
                     nums: [...state.nums, num]
                 };
             }));
-    }, []);
+    }, [phonyLogger]);
     const observedNumbersAsRows: number[][] = _.toArray(_.chunk(state.nums, 1));
     const expectedResult = { logged: true, nums: [1, 2, 3] };
 
