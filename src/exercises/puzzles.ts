@@ -19,6 +19,13 @@ export const mapStatus = (invalidUrl: string): Observable<number> => {
     return of(1);
 }
 
+interface Logger {
+    log(...args: any[]): void;
+}
+export const logging = (console: Logger, observable: Observable<number>): Observable<number> => {
+    return empty();
+}
+
 export const getTheJSON = (url: string): Observable<any> => {
     return empty();
 }

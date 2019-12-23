@@ -46,6 +46,16 @@ You're using the RxJS \`fromFetch\` function to create an Observable from a URL,
 Specifically in this case you want to return an Observable that maps the response object to its status code (which can be found on the response object). Remember the \`pipe\` operator? You'll need that too. Don't worry, it's not as much as it sounds.
 `;
 
+export const tapForDebugging = `
+## Tap Tap Tap
+
+Now that you've begun using operators you'll naturally want to combine them together. If you're familiar with functional programming you'll be very familiar with this style of programming, otherwise it should begin to become intuitive.
+
+One of the advantages to this style of programming is that it can lead to very consice pipelines, but unfortunately it's not always clear how to do anything that is not "pure" in an operation. Consider debugging. In a long pipeline you may want to \`console.log\` the state of an emitted value to see it before and after the operations. You could use map to do that, but you'd need to ensure you always returned the same value from the map. It's hacky.
+
+Enter \`tap\` (or \`do\` or \`doOnNext\` in other languages. \'tap\' passes the value to a function for the purposes of side effects (such as \'console.log\') but does not modify the value. In this exercise use \'tap\' to log each entry in the passed in observable, without modifying it.`
+;
+
 export const getTheJSON = `
 ## Fetch the JSON
 
@@ -55,11 +65,6 @@ This is where \`mergeMap\` or \`flatMap\` come in (they are aliases for each oth
 
 `;
 
-export const makeYourOwn = `
-`;
-
-export const debugging = `
-`;
 
 export const takeFiveRowsFromTheJSON = `
 ## Combining Operators

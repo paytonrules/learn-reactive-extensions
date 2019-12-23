@@ -133,6 +133,44 @@ export const MapStatusCode: React.FC = () => {
     )
 }
 
+export const TapToConsoleLog: React.FC = () => {
+    interface TappedInfo {
+        logged: boolean,
+        nums: number[]
+    };
+    const [state, updateState] = useState<TappedInfo>({logged: false, nums: []});
+
+
+    const phonyLogger = {
+        log(...args: any[]) {
+            updateState(state => { return {logged: true, nums: state.nums}});
+            console.log(args);
+        }
+    }
+
+    useEffect(() => {
+        puzzles
+            .logging(phonyLogger, of(1, 2, 3))
+            .subscribe(num => updateState(state => {
+                return {
+                    logged: state.logged,
+                    nums: [...state.nums, num]
+                };
+            }));
+    }, []);
+    const observedNumbersAsRows: number[][] = _.toArray(_.chunk(state.nums, 1));
+    const expectedResult = { logged: true, nums: [1, 2, 3] };
+
+    return (
+        <ExerciseComponent
+            directions={directions.tapForDebugging}
+            headers={[['Observed values']]}
+            data={observedNumbersAsRows}
+            expectedResult={expectedResult}
+            result={state} />
+    )
+}
+
 export const GetTheJSON: React.FC = () => {
     const [responseBody, setResponseBody] = useState({});
     const expectedResult = [{id:1, title: "json-server", author: "typicode"}];
