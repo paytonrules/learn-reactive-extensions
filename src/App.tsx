@@ -37,6 +37,9 @@ const App: React.FC = () => {
                             <Link to="/mapStatus">
                                 <ListItem>Map Status</ListItem>
                             </Link>
+                            <Link to="/getTheJSON">
+                                <ListItem>Get the JSON</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
@@ -52,6 +55,9 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/mapStatus">
                         <ExerciseComponents.MapStatusCode />
+                    </Route>
+                    <Route path="/getTheJSON">
+                        <ExerciseComponents.GetTheJSON />
                     </Route>
                     <Route path="/">
                         <ExerciseComponents.Directions />

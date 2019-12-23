@@ -126,9 +126,29 @@ export const MapStatusCode: React.FC = () => {
     return (
         <ExerciseComponent
             directions={directions.mapStatusCode}
-            headers={[['Your Error']]}
+            headers={[['Your Status Code']]}
             data={[[[statusCode]]]}
             expectedResult={404}
             result={statusCode} />
+    )
+}
+
+export const GetTheJSON: React.FC = () => {
+    const [responseBody, setResponseBody] = useState({});
+    const expectedResult = [{id:1, title: "json-server", author: "typicode"}];
+
+    useEffect(() => {
+        puzzles
+            .getTheJSON('/posts')
+            .subscribe(body => setResponseBody(body))
+    }, []);
+
+    return (
+        <ExerciseComponent
+            directions={directions.getTheJSON}
+            headers={[['Your JSON']]}
+            data={[[JSON.stringify(responseBody)]]}
+            expectedResult={expectedResult}
+            result={responseBody} />
     )
 }

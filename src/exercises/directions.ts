@@ -43,5 +43,14 @@ export const mapStatusCode = `
 
 You're using the RxJS \`fromFetch\` function to create an Observable from a URL, and the calling component is subscribing that result and using it. Congratulations! At this point you could use Observables anywhere you use Promises with no trouble. For the next step you'll being using your first Reactive *operator* to convert the response to a value: - map.
 
-Specifically in this case you want to return an Observable that maps the response object to its status code (which can be found on the response object). Remember the \'pipe\' operator? You'll need that too. Don't worry, it's not as much as it sounds.
+Specifically in this case you want to return an Observable that maps the response object to its status code (which can be found on the response object). Remember the \`pipe\` operator? You'll need that too. Don't worry, it's not as much as it sounds.
+`
+
+export const getTheJSON = `
+## Fetch the JSON
+
+If you are paying close attention thus far you may have noticed we're cheating.... a little bit. The response object that is emitted by the fetch Observable is the same as the response object used by the official [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). In our case we have it wrapped in an Observable, the official API wraps it in a Promise. To get the actual JSON body we need to call the JSON function - but that returns a Promise. If we use \`map\` here we're going to map every response to a Promise, not to the actual json body inside the Promise. In simpler terms, we'll map will convert the Response to a Promise, when we want to convert a Response to the actual JSON. How do we deal with that situation?
+
+This is where \`mergeMap\` or \`flatMap\` come in. When you don't want an Observable of Observables - you want a \`flatMap\`.
+
 `
