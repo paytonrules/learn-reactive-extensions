@@ -40,6 +40,9 @@ const App: React.FC = () => {
                             <Link to="/getTheJSON">
                                 <ListItem>Get the JSON</ListItem>
                             </Link>
+                            <Link to="/takeFiveRows">
+                                <ListItem>Take Five JSON rows</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
@@ -58,6 +61,9 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/getTheJSON">
                         <ExerciseComponents.GetTheJSON />
+                    </Route>
+                    <Route path="/takeFiveRows">
+                        <ExerciseComponents.TakeFiveRowsFromTheTweets />
                     </Route>
                     <Route path="/">
                         <ExerciseComponents.Directions />

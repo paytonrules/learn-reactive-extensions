@@ -1,6 +1,6 @@
 import 'whatwg-fetch';
 import { Observable, of, empty } from 'rxjs';
-import { take, map, flatMap  } from 'rxjs/operators';
+import { take, map, flatMap, tap  } from 'rxjs/operators';
 import { fromFetch } from 'rxjs/fetch';
 import { Dispatch, SetStateAction } from 'react';
 
@@ -20,5 +20,9 @@ export const mapStatus = (invalidUrl: string): Observable<number> => {
 }
 
 export const getTheJSON = (url: string): Observable<any> => {
+    return empty();
+}
+
+export const takeFiveRows = (url: string): Observable<any> => {
     return empty();
 }
