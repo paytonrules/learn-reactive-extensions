@@ -62,7 +62,7 @@ export const createYourOwnObservable = `
 ### Goal
 * Create an Observable that emits 7, 8, 9.
 
-### New Commands Needed
+### New Operators
 * \`of\` - returns an observable emitting the values passed in.
 `;
 
@@ -79,16 +79,18 @@ This is where \`mergeMap\` or \`flatMap\` come in (they are aliases for each oth
 export const takeFiveRowsFromTheJSON = `
 ## Combining Operators
 
-Now things can really get interesting. You've learned how to take your fetch request and run it through transformations using \`pipe\` and operators like \`map\` and \`flatMap\`. You've also learned how to create an observable using \`of\`, and finally you can limit the number of values emitted with the \`take\` operator.
+### Goal
+Take the first five entries of the JSON response to the passed in URL. Fetch will emit one, 3000 line, JSON object. This requires combining operators.
 
-For this exercise we will make another web request, this one returning a JSON response of 3000 rows. You need to emit the first 5. So you'll need to combine operators which you can do using pipe like so:
+### New Operators
+* pipe - Allows running one filter after the other in a concise syntax.
 
-<pre>
-fromFetch(url).pipe(
-  map(functionOne),
-  flatMap(functionTwo)...
-)
-</pre>
+### Existing Operators
+* flatMap
+* tap (to stepwise debug)
+* take
+* of
 
-The key here is to remembrer that \`response.json\` will emit one json response, to use the \`take\` operator you'll need to convert that to a new observer that emits many of them.
+### Warning
+The request will take some time to refresh until you limit the number of rows. If you log every entry you may end up with a non responsive tab until it finishes. You can use the Browsers task manager to kill the tab.
 `;
