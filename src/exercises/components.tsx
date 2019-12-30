@@ -240,3 +240,23 @@ export const TakeFiveRowsFromTheTweets: React.FC = () => {
             result={rows.map(row => row["id_str"])} />
     )
 }
+
+export const CountValidUsers: React.FC = () => {
+    const [count, setCount] = useState(0);
+    const expectedCount = 2997;
+
+    useEffect(() => {
+        puzzles
+            .countValidUsers("/nintendo")
+            .subscribe(count => setCount(count))
+    }, []);
+
+    return (
+        <ExerciseComponent
+            directions={directions.countValidUsers}
+            headers={[['Valid Users']]}
+            data={[[count]]}
+            expectedResult={expectedCount}
+            result={count} />
+    )
+}

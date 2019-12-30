@@ -90,7 +90,26 @@ Take the first five entries of the JSON response to the passed in URL. Fetch wil
 * tap (to stepwise debug)
 * take
 * of
+* ... or "splat" - not Rx, but JavaScript
 
 ### Warning
 The request will take some time to refresh until you limit the number of rows. If you log every entry you may end up with a non responsive tab until it finishes. You can use the Browsers task manager to kill the tab.
+`;
+
+export const countValidUsers = `
+## Count Valid Users
+
+### Goal
+
+Count the number of valid users from the JSON data returned from the server. Empty users are entries where the 'user' field isn't present in the JSON.
+
+### New Operators
+* filter
+* count
+
+You can technically use just count here, but using filter first is a little more self explanatory. Feel free to use just count for extra credit.
+
+### Existing Operators
+* pipe
+* flatMap
 `;
