@@ -171,6 +171,30 @@ export const TapToConsoleLog: React.FC = () => {
     )
 }
 
+export const CreateYourOwnObservable: React.FC = () => {
+    const [actualResult, setResult] = useState<number[]>([]);
+
+    useEffect(() => {
+        puzzles
+            .createYourOwnObservable()
+            .subscribe(num => setResult(nums => [...nums, num]));
+
+    }, []);
+
+    const expectedResult = [7, 8, 9];
+    const valuesAsRows: number[][] = _.toArray(_.chunk(actualResult, 1));
+
+    return (
+        <ExerciseComponent
+            directions={directions.createYourOwnObservable}
+            headers={[['Your values']]}
+            data={valuesAsRows}
+            expectedResult={expectedResult}
+            result={actualResult} />
+
+    );
+}
+
 export const GetTheJSON: React.FC = () => {
     const [responseBody, setResponseBody] = useState({});
     const expectedResult = [{id:1, title: "json-server", author: "typicode"}];

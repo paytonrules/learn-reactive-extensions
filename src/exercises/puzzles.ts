@@ -26,6 +26,10 @@ export const logging = (console: Logger, observable: Observable<number>): Observ
     return empty();
 }
 
+export const createYourOwnObservable = (): Observable<number> => {
+    return empty();
+}
+
 export const getTheJSON = (url: string): Observable<any> => {
     return empty();
 }

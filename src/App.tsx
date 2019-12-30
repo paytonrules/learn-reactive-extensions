@@ -40,6 +40,9 @@ const App: React.FC = () => {
                             <Link to="/tapToConsoleLog">
                                 <ListItem>Tap To Console Log</ListItem>
                             </Link>
+                            <Link to="/createYourOwnObservable">
+                                <ListItem>Create Your Own Observable</ListItem>
+                            </Link>
                             <Link to="/getTheJSON">
                                 <ListItem>Get the JSON</ListItem>
                             </Link>
@@ -67,6 +70,9 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/getTheJSON">
                         <ExerciseComponents.GetTheJSON />
+                    </Route>
+                    <Route path="/createYourOwnObservable">
+                        <ExerciseComponents.CreateYourOwnObservable />
                     </Route>
                     <Route path="/takeFiveRows">
                         <ExerciseComponents.TakeFiveRowsFromTheTweets />

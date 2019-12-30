@@ -56,6 +56,16 @@ One of the advantages to this style of programming is that it can lead to very c
 Enter \`tap\` (or \`do\` or \`doOnNext\` in other languages. \`tap\` passes the value to a function for the purposes of side effects (such as \`console.log\`) but does not modify the value. In this exercise use \`tap\` to log each entry in the passed in observable, without modifying it.`
 ;
 
+export const createYourOwnObservable = `
+## Create Your Own Observable
+
+### Goal
+* Create an Observable that emits 7, 8, 9.
+
+### New Commands Needed
+* \`of\` - returns an observable emitting the values passed in.
+`;
+
 export const getTheJSON = `
 ## Fetch the JSON
 
