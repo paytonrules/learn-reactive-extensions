@@ -260,3 +260,48 @@ export const CountValidUsers: React.FC = () => {
             result={count} />
     )
 }
+
+export const FindUsersNamed: React.FC = () => {
+    const [userNames, setUserNames] = useState<string[]>([]);
+
+    useEffect(() => {
+        puzzles
+            .findUsersNamed("/nintendo")
+            .subscribe(userName => setUserNames(names => [...names, userName]))
+    }, [])
+
+    const expectedUserNames: string[] = [
+        'liebes engelchen',
+        'luping74',
+        "lae♡ˡᵒᵛᵉ⁴ᵉᵛᵃ",
+        'luping74',
+        "l'Olonnais Zero",
+        "luke @ comic writing",
+        "leslie ✿",
+        "la la layo🌸",
+        "lesbian rights! ⚡️🍻",
+        "lili™",
+        "luna 🌈🐸👖 @ ANIMAL CROSSING PLS",
+        "liebes engelchen",
+        "local dumpster fire",
+        "livyathan",
+        "liebes engelchen",
+        "lili™",
+        "liam wallace",
+        "liebes engelchen",
+        "liebes engelchen"
+    ];
+    const userNamesAsRows: number[][] = _.toArray(_.chunk(userNames, 1))
+    console.log(userNames);
+    console.log("expected", expectedUserNames);
+
+    return (
+        <ExerciseComponent
+            directions={directions.findUsersNamed}
+            headers={[['User Names']]}
+            data={userNamesAsRows}
+            expectedResult={expectedUserNames}
+            result={userNames} />
+    );
+   
+}

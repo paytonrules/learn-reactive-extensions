@@ -113,3 +113,22 @@ You can technically use just count here, but using filter first is a little more
 * pipe
 * flatMap
 `;
+
+export const findUsersNamed = `
+## Find Users Named With 'l'
+
+### Goal
+
+Getting raw JSON data isn't very interesting. Using filter and map pull out the name of all the users who's user_names begin with l. Note you will get duplicate entries.
+
+### New Operators
+* None or \`pluck\` (optional)
+
+### Existing Operators
+* \`pipe\`
+* \`flatMap\`
+* \`filter\`
+* \`map\`
+* \`fromFetch\`
+* \`of\`
+`;

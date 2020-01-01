@@ -41,3 +41,7 @@ export const takeFiveRows = (url: string): Observable<any> => {
 export const countValidUsers = (url: string): Observable<number> => {
     return empty();
 }
+
+export const findUsersNamed = (url:string): Observable<string> => {
+    return empty();
+}
