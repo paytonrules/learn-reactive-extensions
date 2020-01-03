@@ -299,8 +299,6 @@ export const FindUsersNamed: React.FC = () => {
         "liebes engelchen"
     ];
     const userNamesAsRows: number[][] = _.toArray(_.chunk(userNames, 1))
-    console.log(userNames);
-    console.log("expected", expectedUserNames);
 
     return (
         <ExerciseComponent
@@ -310,5 +308,40 @@ export const FindUsersNamed: React.FC = () => {
             expectedResult={expectedUserNames}
             result={userNames} />
     );
-   
+}
+
+export const FindUniqueUsersByName: React.FC = () => {
+    const [userNames, setUserNames] = useState<string[]>([]);
+
+    useEffect(() => {
+        puzzles
+            .findUniqueUsersNamed("/nintendo")
+            .subscribe(userName => setUserNames(names => [...names, userName]))
+    }, [])
+
+    const expectedUserNames: string[] = [
+        'liebes engelchen',
+        'luping74',
+        "lae♡ˡᵒᵛᵉ⁴ᵉᵛᵃ",
+        "l'Olonnais Zero",
+        "luke @ comic writing",
+        "leslie ✿",
+        "la la layo🌸",
+        "lesbian rights! ⚡️🍻",
+        "lili™",
+        "luna 🌈🐸👖 @ ANIMAL CROSSING PLS",
+        "local dumpster fire",
+        "livyathan",
+        "liam wallace"
+    ];
+    const userNamesAsRows: number[][] = _.toArray(_.chunk(userNames, 1))
+
+    return (
+        <ExerciseComponent
+            directions={directions.findUniqueUsersNamed}
+            headers={[['User Names']]}
+            data={userNamesAsRows}
+            expectedResult={expectedUserNames}
+            result={userNames} />
+    );
 }

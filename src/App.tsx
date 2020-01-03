@@ -53,7 +53,10 @@ const App: React.FC = () => {
                                 <ListItem>Count Valid Users</ListItem>
                             </Link>
                             <Link to="/findUsersNamed">
-                                <ListItem>Find Users Named</ListItem>
+                                <ListItem>Find Users By Name</ListItem>
+                            </Link>
+                            <Link to="/findUniqueUsersNamedWithAnL">
+                                <ListItem>Find Unique Users By Name</ListItem>
                             </Link>
                         </List>
                     </DrawerContent>
@@ -88,6 +91,9 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/findUsersNamed">
                         <ExerciseComponents.FindUsersNamed />
+                    </Route>
+                    <Route path="/findUniqueUsersNamedWithAnL">
+                        <ExerciseComponents.FindUniqueUsersByName />
                     </Route>
                     <Route path="/">
                         <ExerciseComponents.Directions />

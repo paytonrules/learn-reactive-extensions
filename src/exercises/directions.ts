@@ -119,7 +119,7 @@ export const findUsersNamed = `
 
 ### Goal
 
-Getting raw JSON data isn't very interesting. Using filter and map pull out the name of all the users who's user_names begin with l. Note you will get duplicate entries.
+Getting raw JSON data isn't very interesting. Using filter and map pull out the name of all the users who's user_names begin with l. Note you will get 
 
 ### New Operators
 * None or \`pluck\` (optional)
@@ -129,6 +129,25 @@ Getting raw JSON data isn't very interesting. Using filter and map pull out the 
 * \`flatMap\`
 * \`filter\`
 * \`map\`
+* \`fromFetch\`
+* \`of\`
+`;
+
+export const findUniqueUsersNamed = `
+## Find Unique Users Named With 'l'
+
+### Goal
+
+Now that you've pulled out the users who's name begins with an 'l', go ahead and just get the unique ones.
+
+### New Operators
+* \`distinct\`
+
+### Existing Operators
+* \`pipe\`
+* \`flatMap\`
+* \`filter\`
+* \`map\` or \`pluck\`
 * \`fromFetch\`
 * \`of\`
 `;
