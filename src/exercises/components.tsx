@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import * as directions from './directions';
 import { DrawerAppContent } from '@rmwc/drawer';
-import { of, throwError } from 'rxjs';
+import { of, throwError, Observable, Observer } from 'rxjs';
 import * as puzzles from './puzzles';
 import { Grid, GridCell } from '@rmwc/grid';
 import { SimpleDataTable } from '@rmwc/data-table';
@@ -16,6 +16,10 @@ import '@material/icon-button/dist/mdc.icon-button.css';
 import '@material/list/dist/mdc.list.css';
 import '@material/ripple/dist/mdc.ripple.css';
 import '@material/top-app-bar/dist/mdc.top-app-bar.css';
+
+function arrayToRows<T>(entries: T[]): T[][] {
+    return _.toArray(_.chunk(entries, 1));
+}
 
 const ExerciseComponent: React.FC<ExerciseProps> = (props: ExerciseProps) => {
     const rightAnswer = 'chartreuse';
@@ -366,7 +370,27 @@ export const SubscribeAndHandleAnError: React.FC = () => {
             expectedResult={'Wrong Url'}
             result={errorMessage} />
     )
+}
 
+export const CatchErrorEmitsASuccessMessage: React.FC = () => {
+    const [messages, setMessages] = useState<string[]>([]);
 
-   
+    useEffect(() => {
+        const observableWithError = Observable.create((observer: Observer<string>) => {
+            observer.next('Right Url');
+            observer.error('Wrong Url');
+            observer.complete();
+        });
+        puzzles.catchErrorEmitsASuccessMessage(observableWithError)
+               .subscribe(newMessage => setMessages(messages => [...messages, newMessage]));
+    }, []);
+
+    return (
+        <ExerciseComponent
+            directions={directions.catchErrorEmitsASuccessMessage}
+            headers={[['Success Message']]}
+            data={arrayToRows(messages)}
+            expectedResult={['Right Url', 'Wrong Url']}
+            result={messages} />
+    )
 }

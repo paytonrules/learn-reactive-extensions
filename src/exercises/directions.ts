@@ -168,3 +168,19 @@ This function does not return an observer.
 ### Existing Operators
 
 `;
+
+export const catchErrorEmitsASuccessMessage = `
+## Convert an Error Into a Success
+
+### Goal
+
+While it's common to log an error and cancel a subscription an observable, like in the previous exercise, it's also common to convert errors into successful domain objects. Think the "Null Object" pattern for example.
+
+In this exercise take the passed in Observable and use \`catchError\` to convert the error into a success message. Do NOT use subscribe, simply return the modified Observer.
+
+### New Operators
+* \`catchError\`
+
+### Existing Operators
+* \`pipe\`
+`;

@@ -61,6 +61,9 @@ const App: React.FC = () => {
                             <Link to="/handleAnErrorWithSubscribe">
                                 <ListItem>Handle An Error With Subscribe</ListItem>
                             </Link>
+                            <Link to="/convertErrorToSuccess">
+                                <ListItem>Convert An Error Into A Success</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
@@ -100,6 +103,9 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/handleAnErrorWithSubscribe">
                         <ExerciseComponents.SubscribeAndHandleAnError />
+                    </Route>
+                    <Route path="/convertErrorToSuccess">
+                        <ExerciseComponents.CatchErrorEmitsASuccessMessage />
                     </Route>
                     <Route path="/">
                         <ExerciseComponents.Directions />
