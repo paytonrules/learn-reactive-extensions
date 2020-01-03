@@ -16,8 +16,6 @@ This first exercise is meant to show you how to use the \`subscribe\` method on 
 The subscribe function takes one parameter - a callback, which is passed the value(s) emitted by the Observable. In this case it is just one value. Subscribe is how you get values out of an Observable. You can think of it like the \`then\` of a promise.
 
 For this first exercise you'll take the value emitted from the Observable, and send it back to the React App via the callback function.
-
-**Important:** The Observable emits wrapper \`Number\` objects. The React callback expects a \`number\` primitive so you'll need to convert the \`Number\` to a \`number\` with the \`valueOf\` method.
 `;
 
 export const takeTwo = `

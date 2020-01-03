@@ -9,10 +9,10 @@ interface Logger {
     error(...args: any[]): void;
 }
 
-export const subscribe = (observable: Observable<Number>, cb:Dispatch<SetStateAction<number>>) => {
+export const subscribe = (observable: Observable<number>, cb:Dispatch<SetStateAction<number>>) => {
 }
 
-export const takeTwo = (observable: Observable<Number>): Observable<Number> => {
+export const takeTwo = (observable: Observable<number>): Observable<number> => {
     return observable;
 }
 
