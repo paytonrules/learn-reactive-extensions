@@ -9,6 +9,13 @@ import { SimpleDataTable } from '@rmwc/data-table';
 import '@rmwc/data-table/data-table.css';
 import _ from 'underscore';
 import { flatMap } from 'rxjs/operators';
+import '@material/drawer/dist/mdc.drawer.css';
+import '@material/layout-grid/dist/mdc.layout-grid.css';
+import '@rmwc/icon/icon.css';
+import '@material/icon-button/dist/mdc.icon-button.css';
+import '@material/list/dist/mdc.list.css';
+import '@material/ripple/dist/mdc.ripple.css';
+import '@material/top-app-bar/dist/mdc.top-app-bar.css';
 
 const ExerciseComponent: React.FC<ExerciseProps> = (props: ExerciseProps) => {
     const rightAnswer = 'chartreuse';
