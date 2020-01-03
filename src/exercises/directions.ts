@@ -151,3 +151,20 @@ Now that you've pulled out the users who's name begins with an 'l', go ahead and
 * \`fromFetch\`
 * \`of\`
 `;
+
+
+export const subscribeAndHandleAnError = `
+## Subscribe And Handle the Error
+
+### Goal
+
+The observer passed into this function will, when subscribed to, error. Use the \`subscribe\` method that accepts multiple parameters to catch the error and log it _as an error_ using the passed in console logger.
+
+This function does not return an observer.
+
+### New Operators
+* \`subscribe\` with the \`error\` method handler.
+
+### Existing Operators
+
+`;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import * as directions from './directions';
 import { DrawerAppContent } from '@rmwc/drawer';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import * as puzzles from './puzzles';
 import { Grid, GridCell } from '@rmwc/grid';
 import { SimpleDataTable } from '@rmwc/data-table';
@@ -152,7 +152,8 @@ export const TapToConsoleLog: React.FC = () => {
         log(...args: any[]) {
             updateState(state => { return {logged: true, nums: state.nums}});
             console.log(args);
-        }
+        },
+        error(...args: any[]) {}
     }
 
     useEffect(() => {
@@ -344,4 +345,28 @@ export const FindUniqueUsersByName: React.FC = () => {
             expectedResult={expectedUserNames}
             result={userNames} />
     );
+}
+
+export const SubscribeAndHandleAnError: React.FC = () => {
+    const [errorMessage, setErrorMessage] = useState<string>('No error sent');
+    let console = {
+        log(...args: any[]) { },
+        error(...args: any[]) { setErrorMessage(args[0]) }
+    }
+
+    useEffect(() => {
+        puzzles.subscribeAndHandleAnError(console, throwError('Wrong Url'));
+    }, [console]);
+
+    return (
+        <ExerciseComponent
+            directions={directions.subscribeAndHandleAnError}
+            headers={[['Error Message']]}
+            data={[[errorMessage]]}
+            expectedResult={'Wrong Url'}
+            result={errorMessage} />
+    )
+
+
+   
 }

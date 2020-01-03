@@ -58,6 +58,9 @@ const App: React.FC = () => {
                             <Link to="/findUniqueUsersNamedWithAnL">
                                 <ListItem>Find Unique Users By Name</ListItem>
                             </Link>
+                            <Link to="/handleAnErrorWithSubscribe">
+                                <ListItem>Handle An Error With Subscribe</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
@@ -94,6 +97,9 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/findUniqueUsersNamedWithAnL">
                         <ExerciseComponents.FindUniqueUsersByName />
+                    </Route>
+                    <Route path="/handleAnErrorWithSubscribe">
+                        <ExerciseComponents.SubscribeAndHandleAnError />
                     </Route>
                     <Route path="/">
                         <ExerciseComponents.Directions />

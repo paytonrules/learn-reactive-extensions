@@ -4,6 +4,11 @@ import { take, map, flatMap, tap, filter, count, distinct } from 'rxjs/operators
 import { fromFetch } from 'rxjs/fetch';
 import { Dispatch, SetStateAction } from 'react';
 
+interface Logger {
+    log(...args: any[]): void;
+    error(...args: any[]): void;
+}
+
 export const subscribe = (observable: Observable<Number>, cb:Dispatch<SetStateAction<number>>) => {
 }
 
@@ -19,9 +24,6 @@ export const mapStatus = (invalidUrl: string): Observable<number> => {
     return of(1);
 }
 
-interface Logger {
-    log(...args: any[]): void;
-}
 export const logging = (console: Logger, observable: Observable<number>): Observable<number> => {
     return empty();
 }
@@ -48,4 +50,7 @@ export const findUsersNamed = (url: string): Observable<string> => {
 
 export const findUniqueUsersNamed = (url: string): Observable<string> => {
     return empty();
+}
+
+export const subscribeAndHandleAnError = (console: Logger, observable: Observable<string>) => {
 }
