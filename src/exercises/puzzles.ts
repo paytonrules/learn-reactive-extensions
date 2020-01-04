@@ -64,3 +64,14 @@ export const catchErrorEmitsASuccessMessage = (observable: Observable<any>): Obs
 export const convertSuccessfulFetchIntoError = (url: string): Observable<any> => {
     return empty();
 }
+
+interface Tweet {
+    screenName: string;
+    tweet: string;
+}
+
+export const chainFetches = (firstUrl: string, secondUrl: _.CompiledTemplate): Observable<Tweet> => {
+    // secondUrl can have the id substituted in with
+    // secondUrl({id: <the right id>})
+    return empty();
+}

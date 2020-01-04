@@ -198,3 +198,21 @@ By default \`fromFetch\` will emit a successful response in the event of 404 or 
 * \`map\`
 
 `;
+
+export const chainFetches = `
+## Chain Fetches Together
+
+### Goal
+
+The function takes two URLs. The first URL will return one JSON object in the request. Take the user.id from the response and use it in the second fetch. You will return an array of tweets with the screen_name and text from the second request.
+
+### New Operators
+* None
+
+### Existing Operators
+
+* \`pipe\`
+* \`map\`
+* \`flatMap\`
+* \`fromFetch\`
+`;

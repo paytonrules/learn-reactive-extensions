@@ -67,6 +67,9 @@ const App: React.FC = () => {
                             <Link to="/convertSuccessToError">
                                 <ListItem>Convert A Successful Fetch Into An Error</ListItem>
                             </Link>
+                            <Link to="/chainFetches">
+                                <ListItem>Chain Fetches</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
@@ -113,6 +116,10 @@ const App: React.FC = () => {
                     <Route path="/convertSuccessToError">
                         <ExerciseComponents.ConvertSuccessIntoErrorWithThrow />
                     </Route>
+                    <Route path="/chainFetches">
+                        <ExerciseComponents.ChainFetches />
+                    </Route>
+
                     <Route path="/">
                         <ExerciseComponents.Directions />
                     </Route>

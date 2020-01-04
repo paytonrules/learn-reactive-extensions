@@ -410,3 +410,32 @@ export const ConvertSuccessIntoErrorWithThrow: React.FC = () => {
             result={errorMessage} />
     )
 }
+
+export const ChainFetches: React.FC = () => {
+    const [tweets, setTweets] = useState<string[][]>([]);
+
+
+    useEffect(() => {
+        const nintendoUrl = "http://localhost:3001/nintendo?id=1006567010153705500";
+        const twitterUrl = _.template('http://localhost:3001/twitter?user.id=<%= id %>');
+        puzzles
+            .chainFetches(nintendoUrl, twitterUrl)
+            .subscribe(obj => setTweets(t => [...t, [obj.screenName, obj.tweet]]));
+    }, []);
+
+    const expectedResult = [
+        ["jojade74", "why does everyone like my voice i sound like ed miliband choking on sandwich"],
+        ["jojade74", "@Johnny_G86 @bbcnickrobinson he was a young Tory -comes from Cheadle Hulme"]
+    ]
+
+    return (
+        <ExerciseComponent
+        directions={directions.chainFetches}
+        headers={[['Username', 'Tweet']]}
+        data={tweets}
+            expectedResult={expectedResult}
+            result={tweets}
+        />
+    )
+  
+}
