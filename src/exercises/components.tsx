@@ -391,3 +391,22 @@ export const CatchErrorEmitsASuccessMessage: React.FC = () => {
             result={messages} />
     )
 }
+
+export const ConvertSuccessIntoErrorWithThrow: React.FC = () => {
+    const [errorMessage, setErrorMessage] = useState('No Error Reported');
+
+    useEffect(() => {
+        puzzles
+            .convertSuccessfulFetchIntoError('/badUrl')
+            .subscribe(() => {}, err => setErrorMessage(err));
+    }, []);
+
+    return (
+        <ExerciseComponent
+            directions={directions.convertSuccessfulFetchIntoError}
+            headers={[['Error Message']]}
+            data={[[errorMessage]]}
+            expectedResult={'Not Found'}
+            result={errorMessage} />
+    )
+}

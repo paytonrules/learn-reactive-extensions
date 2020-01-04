@@ -182,3 +182,19 @@ In this exercise take the passed in Observable and use \`catchError\` to convert
 ### Existing Operators
 * \`pipe\`
 `;
+
+export const convertSuccessfulFetchIntoError = `
+## Convert Success Into An Error
+
+### Goal
+
+By default \`fromFetch\` will emit a successful response in the event of 404 or other HTTP failures. Many other libraries will emit an error in that case, completing the subscription. In this puzzle use \`fromFetch\` to make the web request, but map the responses statusText to an error.
+
+### New Operators
+* \`response\` - use the response object's other methods to determine the error message.
+
+### Existing Operators
+* \`pipe\`
+* \`map\`
+
+`;

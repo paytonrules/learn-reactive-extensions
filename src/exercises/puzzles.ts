@@ -60,3 +60,7 @@ export const catchErrorEmitsASuccessMessage = (observable: Observable<any>): Obs
 }
 
 /// FIGURE OUT HOW TO CONTINUE THE STREAM AFTER
+//
+export const convertSuccessfulFetchIntoError = (url: string): Observable<any> => {
+    return empty();
+}
