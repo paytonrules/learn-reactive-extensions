@@ -55,6 +55,8 @@ export const findUniqueUsersNamed = (url: string): Observable<string> => {
 export const subscribeAndHandleAnError = (console: Logger, observable: Observable<string>) => {
 }
 
-export const catchErrorEmitsASuccessMessage = (observable: Observable<string>): Observable<string> => {
+export const catchErrorEmitsASuccessMessage = (observable: Observable<any>): Observable<any> => {
     return observable;
 }
+
+/// FIGURE OUT HOW TO CONTINUE THE STREAM AFTER
