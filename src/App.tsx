@@ -7,6 +7,7 @@ import { List, ListItem } from '@rmwc/list'
 import { BrowserRouter as Router,
          Switch, Route, Link } from 'react-router-dom';
 import * as ExerciseComponents from './exercises/components';
+import * as Search from './exercises/search';
 
 const App: React.FC = () => {
     return (
@@ -88,6 +89,9 @@ const App: React.FC = () => {
                             <Link to="/completed">
                                 <ListItem>Complete A Subscription</ListItem>
                             </Link>
+                            <Link to="/searchTweets">
+                                <ListItem>Search Tweets</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
@@ -154,6 +158,9 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/completed">
                         <ExerciseComponents.CompleteASubscription />
+                    </Route>
+                    <Route path="/searchTweets">
+                        <Search.Engine />
                     </Route>
                     <Route path="/">
                         <ExerciseComponents.Directions />
