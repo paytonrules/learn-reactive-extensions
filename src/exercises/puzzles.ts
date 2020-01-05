@@ -1,5 +1,5 @@
 import 'whatwg-fetch';
-import { Observable, Observer, of, empty, merge } from 'rxjs';
+import { Observable, Observer, of, empty, merge, Subject, ReplaySubject, BehaviorSubject } from 'rxjs';
 import { take, map, flatMap, tap, filter, count, distinct, catchError} from 'rxjs/operators';
 import { fromFetch } from 'rxjs/fetch';
 import { Dispatch, SetStateAction } from 'react';
@@ -81,5 +81,14 @@ export const mergeToCombineRequests = (firstUrl: string, secondUrl: string): Obs
 }
 
 export const createYourOwnFetch = (url: string): Observable<any> => {
+    return empty();
+}
+
+export const creatingBehaviorSubjects = (logger: Logger): Subject<string> => {
+    const subject = new Subject<string>();
+    return subject;
+}
+
+export const emitAllTheSentValues = (values: string[]): Observable<string> => {
     return empty();
 }

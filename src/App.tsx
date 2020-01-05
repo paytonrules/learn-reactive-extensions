@@ -76,6 +76,12 @@ const App: React.FC = () => {
                             <Link to="/createYourOwnFetch">
                                 <ListItem>Create Your Own Fetch</ListItem>
                             </Link>
+                            <Link to="/creatingBehaviorSubjects">
+                                <ListItem>Creating Behavior Subjects</ListItem>
+                            </Link>
+                            <Link to="/emitAllTheSentValues">
+                                <ListItem>Emit All The Sent Values</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
@@ -130,6 +136,12 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/createYourOwnFetch">
                         <ExerciseComponents.CreateYourOwnFetch />
+                    </Route>
+                    <Route path="/creatingBehaviorSubjects">
+                        <ExerciseComponents.CreatingBehaviorSubjects />
+                    </Route>
+                    <Route path="/emitAllTheSentValues">
+                        <ExerciseComponents.EmitAllTheSentValues />
                     </Route>
                     <Route path="/">
                         <ExerciseComponents.Directions />

@@ -244,3 +244,31 @@ Don't use the \`fromFetch\` or \`fromPromise\` but instead create and return an 
 
 * \`Observable.create\` - you'll need to specify the observer type
 `
+
+export const creatingBehaviorSubjects = `
+## Using Subjects
+
+### Goal
+
+This exercise is expecting your code to return a Behavior Subject, to which it will emit "one", "two", "three". Your job is to create one, initialized with the value "zero", and then subscribe to it logging each value with the passed in logger. You'll need to filter out the value "two".
+
+### New Operators
+
+* \`BehaviorSubject\`
+* \`Subject\`
+`;
+
+export const emitAllTheSentValues = `
+## Emit All The Sent Values
+
+An example in choosing the right subject type.
+
+### Goal
+
+Create a subject and send every value in the passed in array to it. You should see all of them displayed on screen.
+
+### Operators
+
+You must choose between \`BehaviorSubject\` and \`ReplaySubject\`.
+
+`;

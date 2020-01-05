@@ -475,7 +475,7 @@ export const CreateYourOwnFetch: React.FC = () => {
             flatMap( _ =>  puzzles.createYourOwnFetch(badRequestUrl))
         ).subscribe(msg => setMessages(messages => [...messages, msg]),
                     err => setMessages(messages => [...messages, err]));
-    }, [])
+    }, []);
 
     return (
         <ExerciseComponent
@@ -487,3 +487,55 @@ export const CreateYourOwnFetch: React.FC = () => {
         />
     )
 }
+
+export const CreatingBehaviorSubjects: React.FC = () => {
+    const [messages, setMessages] = useState<string[]>([]);
+
+
+    useEffect(() => {
+        const phonyLogger = {
+            log(...args: any[]) {
+                setMessages(messages => [...messages, ...args]);
+            },
+            error(...args: any[]) {}
+        }
+        const subject = puzzles.creatingBehaviorSubjects(phonyLogger)
+        subject.next("one");
+        subject.next("two");
+        subject.next("three");
+    }, []);
+
+    return (
+        <ExerciseComponent
+            directions={directions.creatingBehaviorSubjects}
+            headers={[['Results']]}
+            data={arrayToRows(messages)}
+            expectedResult={["first", "one", "three"]}
+            result={messages}
+        />
+    )
+}
+
+export const EmitAllTheSentValues: React.FC = () => {
+    const [messages, setMessages] = useState<string[]>([]);
+
+
+    useEffect(() => {
+        const observable = puzzles.emitAllTheSentValues(["1", "four", "the end"]);
+        observable.subscribe(x => setMessages(messages => [...messages, x]));
+    }, []);
+
+    return (
+        <ExerciseComponent
+            directions={directions.emitAllTheSentValues}
+            headers={[['Results']]}
+            data={arrayToRows(messages)}
+            expectedResult={["1", "four", "the end"]}
+            result={messages}
+        />
+    )
+}
+
+// Emit the last sent value
+// Emit a complete
+// Search Engine
