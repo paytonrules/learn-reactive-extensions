@@ -92,3 +92,7 @@ export const creatingBehaviorSubjects = (logger: Logger): Subject<string> => {
 export const emitAllTheSentValues = (values: string[]): Observable<string> => {
     return empty();
 }
+
+export const emitTheLastSentValue = (values: string[]): Observable<string> => {
+    return empty();
+}

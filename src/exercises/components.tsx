@@ -519,7 +519,6 @@ export const CreatingBehaviorSubjects: React.FC = () => {
 export const EmitAllTheSentValues: React.FC = () => {
     const [messages, setMessages] = useState<string[]>([]);
 
-
     useEffect(() => {
         const observable = puzzles.emitAllTheSentValues(["1", "four", "the end"]);
         observable.subscribe(x => setMessages(messages => [...messages, x]));
@@ -536,6 +535,23 @@ export const EmitAllTheSentValues: React.FC = () => {
     )
 }
 
-// Emit the last sent value
+export const EmitTheLastSentValue: React.FC = () => {
+    const [messages, setMessages] = useState<string[]>([]);
+
+    useEffect(() => {
+        const observable = puzzles.emitTheLastSentValue(["1", "four", "the end"]);
+        observable.subscribe(x => setMessages(messages => [...messages, x]));
+    }, []);
+
+    return (
+        <ExerciseComponent
+            directions={directions.emitTheLastSentValue}
+            headers={[['Results']]}
+            data={arrayToRows(messages)}
+            expectedResult={["the end"]}
+            result={messages}
+        />
+    )
+}
 // Emit a complete
 // Search Engine

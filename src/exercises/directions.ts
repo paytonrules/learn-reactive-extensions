@@ -272,3 +272,18 @@ Create a subject and send every value in the passed in array to it. You should s
 You must choose between \`BehaviorSubject\` and \`ReplaySubject\`.
 
 `;
+
+export const emitTheLastSentValue = `
+## Emit The Last Sent Value
+
+A (second) example in choosing the right subject type.
+
+### Goal
+
+Create a subject and send every value in the passed in array to it. You should see all only the last of them displayed on screen, because of the subject chosen.
+
+### Operators
+
+You must choose between \`BehaviorSubject\` and \`ReplaySubject\`.
+
+`;

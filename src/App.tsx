@@ -82,6 +82,9 @@ const App: React.FC = () => {
                             <Link to="/emitAllTheSentValues">
                                 <ListItem>Emit All The Sent Values</ListItem>
                             </Link>
+                            <Link to="/emitTheLastSentValue">
+                                <ListItem>Emit The Last Sent Value</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
@@ -142,6 +145,9 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/emitAllTheSentValues">
                         <ExerciseComponents.EmitAllTheSentValues />
+                    </Route>
+                    <Route path="/emitTheLastSentValue">
+                        <ExerciseComponents.EmitTheLastSentValue />
                     </Route>
                     <Route path="/">
                         <ExerciseComponents.Directions />
