@@ -1,5 +1,5 @@
 import 'whatwg-fetch';
-import { Observable, of, empty } from 'rxjs';
+import { Observable, of, empty, merge } from 'rxjs';
 import { take, map, flatMap, tap, filter, count, distinct, catchError} from 'rxjs/operators';
 import { fromFetch } from 'rxjs/fetch';
 import { Dispatch, SetStateAction } from 'react';
@@ -73,5 +73,9 @@ interface Tweet {
 export const chainFetches = (firstUrl: string, secondUrl: _.CompiledTemplate): Observable<Tweet> => {
     // secondUrl can have the id substituted in with
     // secondUrl({id: <the right id>})
+    return empty();
+}
+
+export const mergeToCombineRequests = (firstUrl: string, secondUrl: string): Observable<number> => {
     return empty();
 }

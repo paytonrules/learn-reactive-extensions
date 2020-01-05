@@ -70,6 +70,9 @@ const App: React.FC = () => {
                             <Link to="/chainFetches">
                                 <ListItem>Chain Fetches</ListItem>
                             </Link>
+                            <Link to="/mergeToCombineRequests">
+                                <ListItem>Merge To Combine Requests</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
@@ -118,6 +121,9 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/chainFetches">
                         <ExerciseComponents.ChainFetches />
+                    </Route>
+                    <Route path="/mergeToCombineRequests">
+                        <ExerciseComponents.MergeToCombineRequests />
                     </Route>
 
                     <Route path="/">

@@ -216,3 +216,19 @@ The function takes two URLs. The first URL will return one JSON object in the re
 * \`flatMap\`
 * \`fromFetch\`
 `;
+
+export const mergeToCombineRequests = `
+## Merge To Combine Requests
+
+### Goal
+
+Use the \`merge\` command to combine two fetches, allowing them to run concurrently, and then return the count of distinct screen_names. You'll need to filter out empty ones.
+
+### New Operators
+
+* \`merge\`
+
+### Existing Operators
+
+* From now on you won't get this hint
+`;

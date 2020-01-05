@@ -439,3 +439,27 @@ export const ChainFetches: React.FC = () => {
     )
   
 }
+
+export const MergeToCombineRequests: React.FC = () => {
+    const [count, setCount] = useState(0);
+
+
+    useEffect(() => {
+        const nintendoUrl = "http://localhost:3001/nintendo";
+        const twitterUrl = "http://localhost:3001/twitter";
+        puzzles
+            .mergeToCombineRequests(nintendoUrl, twitterUrl)
+            .subscribe(ct => setCount(ct));
+    }, []);
+
+    return (
+        <ExerciseComponent
+            directions={directions.mergeToCombineRequests}
+            headers={[['Tweet Count']]}
+            data={[[count]]}
+            expectedResult={4776}
+            result={count}
+        />
+    )
+
+}
