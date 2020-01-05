@@ -1,5 +1,5 @@
 import 'whatwg-fetch';
-import { Observable, of, empty, merge } from 'rxjs';
+import { Observable, Observer, of, empty, merge } from 'rxjs';
 import { take, map, flatMap, tap, filter, count, distinct, catchError} from 'rxjs/operators';
 import { fromFetch } from 'rxjs/fetch';
 import { Dispatch, SetStateAction } from 'react';
@@ -16,7 +16,7 @@ export const takeTwo = (observable: Observable<number>): Observable<number> => {
     return observable;
 }
 
-export const fetch = (url: string): Observable<Response> => {
+export const usingFetch = (url: string): Observable<Response> => {
     return empty();
 }
 
@@ -77,5 +77,9 @@ export const chainFetches = (firstUrl: string, secondUrl: _.CompiledTemplate): O
 }
 
 export const mergeToCombineRequests = (firstUrl: string, secondUrl: string): Observable<number> => {
+    return empty();
+}
+
+export const createYourOwnFetch = (url: string): Observable<any> => {
     return empty();
 }

@@ -31,8 +31,8 @@ const App: React.FC = () => {
                             <Link to="/take">
                                 <ListItem>Take 2</ListItem>
                             </Link>
-                            <Link to="/fetch">
-                                <ListItem>Fetch</ListItem>
+                            <Link to="/usingFetch">
+                                <ListItem>Using Fetch</ListItem>
                             </Link>
                             <Link to="/mapStatus">
                                 <ListItem>Map Status</ListItem>
@@ -73,6 +73,9 @@ const App: React.FC = () => {
                             <Link to="/mergeToCombineRequests">
                                 <ListItem>Merge To Combine Requests</ListItem>
                             </Link>
+                            <Link to="/createYourOwnFetch">
+                                <ListItem>Create Your Own Fetch</ListItem>
+                            </Link>
                         </List>
                     </DrawerContent>
                 </Drawer>
@@ -83,8 +86,8 @@ const App: React.FC = () => {
                     <Route path="/take">
                         <ExerciseComponents.TakeTwo />
                     </Route>
-                    <Route path="/fetch">
-                        <ExerciseComponents.Fetch />
+                    <Route path="/usingFetch">
+                        <ExerciseComponents.UsingFetch />
                     </Route>
                     <Route path="/mapStatus">
                         <ExerciseComponents.MapStatusCode />
@@ -125,7 +128,9 @@ const App: React.FC = () => {
                     <Route path="/mergeToCombineRequests">
                         <ExerciseComponents.MergeToCombineRequests />
                     </Route>
-
+                    <Route path="/createYourOwnFetch">
+                        <ExerciseComponents.CreateYourOwnFetch />
+                    </Route>
                     <Route path="/">
                         <ExerciseComponents.Directions />
                     </Route>

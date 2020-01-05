@@ -28,7 +28,7 @@ In this exercise the function will take an Observable, modify it using your firs
 Keep in mind that operators can be called two different ways. One is to call them directly, passing them their parameters which then return a function that takes an Observable. This is awkward and the more common way to make the call is to use the \`pipe\` operator, and pass operators to the pipe like so: \`observable.pipe(map(val => val * 2))\`.
 `;
 
-export const fetch = `
+export const usingFetch = `
 ## Fetch
 
 Now that a function is returning an Observable we are partway to seeing the power of Reactive Extensions, but where do Observable's come from? Well they can be created anywhere but in this exercise you'll use the the RxJS \`fromFetch\` function to create an Observable that represents make a web request and return an Observable. The function currently returns an \`empty\` which is quite useful for testing but not very useful in real code.
@@ -232,3 +232,15 @@ Use the \`merge\` command to combine two fetches, allowing them to run concurren
 
 * From now on you won't get this hint
 `;
+
+export const createYourOwnFetch = `
+## Create Your Own Fetch
+
+### Goal
+
+Don't use the \`fromFetch\` or \`fromPromise\` but instead create and return an Observable using that wraps the built in fetch function \`Observalbe.create\`. Your observable should always emit the json blob instead of the response object, and should emit an error with the status text when the response is not 'ok'. If you do this right you'll get two results on the page.
+
+### New Operators
+
+* \`Observable.create\` - you'll need to specify the observer type
+`

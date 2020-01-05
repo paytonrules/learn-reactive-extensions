@@ -8,7 +8,7 @@ import { Grid, GridCell } from '@rmwc/grid';
 import { SimpleDataTable } from '@rmwc/data-table';
 import '@rmwc/data-table/data-table.css';
 import _ from 'underscore';
-import { flatMap } from 'rxjs/operators';
+import { flatMap, map, tap } from 'rxjs/operators';
 import '@material/drawer/dist/mdc.drawer.css';
 import '@material/layout-grid/dist/mdc.layout-grid.css';
 import '@rmwc/icon/icon.css';
@@ -103,12 +103,12 @@ export const TakeTwo: React.FC = () => {
 }
 
 
-export const Fetch: React.FC = () => {
+export const UsingFetch: React.FC = () => {
     const [response, setResponse] = useState({});
 
     useEffect(() => {
         puzzles
-            .fetch('/posts')
+            .usingFetch('/posts')
             .pipe(
                 flatMap(response => response.json())
             )
@@ -117,7 +117,7 @@ export const Fetch: React.FC = () => {
 
     return (
         <ExerciseComponent
-            directions={directions.fetch}
+            directions={directions.usingFetch}
             headers={[['Your Values']]}
             data={[[JSON.stringify(response)]]}
             expectedResult={{id:1, title:"json-server", author: "typicode"}}
@@ -416,8 +416,8 @@ export const ChainFetches: React.FC = () => {
 
 
     useEffect(() => {
-        const nintendoUrl = "http://localhost:3001/nintendo?id=1006567010153705500";
-        const twitterUrl = _.template('http://localhost:3001/twitter?user.id=<%= id %>');
+        const nintendoUrl = "/nintendo?id=1006567010153705500";
+        const twitterUrl = _.template('/twitter?user.id=<%= id %>');
         puzzles
             .chainFetches(nintendoUrl, twitterUrl)
             .subscribe(obj => setTweets(t => [...t, [obj.screenName, obj.tweet]]));
@@ -443,10 +443,9 @@ export const ChainFetches: React.FC = () => {
 export const MergeToCombineRequests: React.FC = () => {
     const [count, setCount] = useState(0);
 
-
     useEffect(() => {
-        const nintendoUrl = "http://localhost:3001/nintendo";
-        const twitterUrl = "http://localhost:3001/twitter";
+        const nintendoUrl = "/nintendo";
+        const twitterUrl = "/twitter";
         puzzles
             .mergeToCombineRequests(nintendoUrl, twitterUrl)
             .subscribe(ct => setCount(ct));
@@ -461,5 +460,32 @@ export const MergeToCombineRequests: React.FC = () => {
             result={count}
         />
     )
+}
 
+export const CreateYourOwnFetch: React.FC = () => {
+    const [messages, setMessages] = useState<string[]>([]);
+
+    useEffect(() => {
+        const goodRequestUrl = "/nintendo?id=1006567010153705500";
+        const badRequestUrl = "/nope";
+
+        puzzles.createYourOwnFetch(goodRequestUrl).pipe(
+            map(body => body[0]['user']?.['screen_name']),
+            tap(screenName => setMessages(messages => [...messages, screenName])),
+            flatMap( _ =>  puzzles.createYourOwnFetch(badRequestUrl))
+        ).subscribe(msg => setMessages(messages => [...messages, msg]),
+                    err => setMessages(messages => [...messages, err]));
+    }, [])
+
+
+    console.log(messages);
+    return (
+        <ExerciseComponent
+            directions={directions.createYourOwnFetch}
+            headers={[['Results']]}
+            data={arrayToRows(messages)}
+            expectedResult={['jojade74', 'Not Found']}
+            result={messages}
+        />
+    )
 }
