@@ -477,8 +477,6 @@ export const CreateYourOwnFetch: React.FC = () => {
                     err => setMessages(messages => [...messages, err]));
     }, [])
 
-
-    console.log(messages);
     return (
         <ExerciseComponent
             directions={directions.createYourOwnFetch}
