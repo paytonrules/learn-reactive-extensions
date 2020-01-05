@@ -553,5 +553,26 @@ export const EmitTheLastSentValue: React.FC = () => {
         />
     )
 }
-// Emit a complete
-// Search Engine
+
+export const CompleteASubscription: React.FC = () => {
+    const [messages, setMessages] = useState<string[]>([]);
+
+    useEffect(() => {
+        puzzles
+            .completeASubscription()
+            .subscribe(val => setMessages(m => [...m, val]),
+                       err => setMessages(m => [...m, err]),
+                       () => setMessages(m => [...m, "complete"]));
+    }, []);
+
+    return (
+        <ExerciseComponent
+            directions={directions.completeASubscription}
+            headers={[['Emissions']]}
+            data={arrayToRows(messages)}
+            expectedResult={["value one", "complete"]}
+            result={messages}
+        />
+
+    );
+}

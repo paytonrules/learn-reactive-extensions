@@ -96,3 +96,7 @@ export const emitAllTheSentValues = (values: string[]): Observable<string> => {
 export const emitTheLastSentValue = (values: string[]): Observable<string> => {
     return empty();
 }
+
+export const completeASubscription = (): Observable<string> => {
+    return empty();
+}

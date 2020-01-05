@@ -287,3 +287,15 @@ Create a subject and send every value in the passed in array to it. You should s
 You must choose between \`BehaviorSubject\` and \`ReplaySubject\`.
 
 `;
+
+export const completeASubscription = `
+## Complete A Subscription
+
+### Goal
+
+Use the complete function on an observer to complete subscription. Before you do make sure you emit one value ('value one').
+
+### Operators
+
+Your choice
+`;
