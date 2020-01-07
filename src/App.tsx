@@ -39,7 +39,7 @@ const App: React.FC = () => {
                                 <ListItem>Map Status</ListItem>
                             </Link>
                             <Link to="/tapToConsoleLog">
-                                <ListItem>Tap To Console Log</ListItem>
+                                <ListItem>Logging</ListItem>
                             </Link>
                             <Link to="/createYourOwnObservable">
                                 <ListItem>Create Your Own Observable</ListItem>

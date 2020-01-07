@@ -23,38 +23,54 @@ Using the passed in observer send its result to callback (\`cb\`).
 export const takeTwo = `
 ## Take 2
 
-In the first exercise we subscribed to an Observable and then made a callback into a React application. This isn't how you'll want to use Observable's typically, indeed you could have just made the callback directy. Part of the power of Observables is that you can return them as values, and that's what we'll be doing in this second exercise. The parent component will handle the subscription, which is a more typical way to use an Observable.
+### Goal
 
-In this exercise the function will take an Observable, modify it using your first RxJS operator (take), and return it to be further processed by the react app. Specifically this app will take first two items from the Observable. It's a straightforward operator that takes the first x items emitted from the Observable.
+Return an observable that takes the last two values off the end of the observable.
 
-Keep in mind that operators can be called two different ways. One is to call them directly, passing them their parameters which then return a function that takes an Observable. This is awkward and the more common way to make the call is to use the \`pipe\` operator, and pass operators to the pipe like so: \`observable.pipe(map(val => val * 2))\`.
+### New Operators
+
+* \`pipe\`
+* \`take\`
 `;
 
 export const usingFetch = `
 ## Fetch
 
-Now that a function is returning an Observable we are partway to seeing the power of Reactive Extensions, but where do Observable's come from? Well they can be created anywhere but in this exercise you'll use the the RxJS \`fromFetch\` function to create an Observable that represents make a web request and return an Observable. The function currently returns an \`empty\` which is quite useful for testing but not very useful in real code.
+### Goal
 
-Replace the empty Observable with an Observable representing the web request and you'll see this test turn green with a JSON response.
+Replace the fetch operator with an Observable that calls the same url.
+
+### New Operators
+
+* \`fromFetch\`
 `;
 
 export const mapStatusCode = `
 ## Map Status Code
 
-You're using the RxJS \`fromFetch\` function to create an Observable from a URL, and the calling component is subscribing that result and using it. Congratulations! At this point you could use Observables anywhere you use Promises with no trouble. For the next step you'll being using your first Reactive *operator* to convert the response to a value: - map.
+### Goal
 
-Specifically in this case you want to return an Observable that maps the response object to its status code (which can be found on the response object). Remember the \`pipe\` operator? You'll need that too. Don't worry, it's not as much as it sounds.
+Return an Observable that maps the response object to its status code (which can be found on the response object).
+
+### New Operators
+* \`map\`
+* \`response.status\`
+
+### Existing Operators
+* \`fromFetch\`
+* \`pipe\`
 `;
 
 export const tapForDebugging = `
-## Tap Tap Tap
+## Tap For Side Effects
 
-Now that you've begun using operators you'll naturally want to combine them together. If you're familiar with functional programming you'll be very familiar with this style of programming, otherwise it should begin to become intuitive.
+### Goal
 
-One of the advantages to this style of programming is that it can lead to very consice pipelines, but unfortunately it's not always clear how to do anything that is not "pure" in an operation. Consider debugging. In a long pipeline you may want to \`console.log\` the state of an emitted value to see it before and after the operations. You could use map to do that, but you'd need to ensure you always returned the same value from the map. It's hacky.
+Use \`tap\` to log each entry in the passed in observable
 
-Enter \`tap\` (or \`do\` or \`doOnNext\` in other languages. \`tap\` passes the value to a function for the purposes of side effects (such as \`console.log\`) but does not modify the value. In this exercise use \`tap\` to log each entry in the passed in observable, without modifying it.`
-;
+### New Operators
+* \`tap\`
+`;
 
 export const createYourOwnObservable = `
 ## Create Your Own Observable
