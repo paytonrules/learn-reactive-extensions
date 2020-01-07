@@ -76,7 +76,7 @@ export const createYourOwnObservable = `
 ## Create Your Own Observable
 
 ### Goal
-* Create an Observable that emits 7, 8, 9.
+Create an Observable that emits 7, 8, 9.
 
 ### New Operators
 * \`of\` - returns an observable emitting the values passed in.
@@ -85,12 +85,17 @@ export const createYourOwnObservable = `
 export const getTheJSON = `
 ## Fetch the JSON
 
-If you are paying close attention thus far you may have noticed we're cheating.... a little bit. The response object that is emitted by the fetch Observable is the same as the response object used by the official [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). In our case we have it wrapped in an Observable, the official API wraps it in a Promise. To get the actual JSON body we need to call the JSON function - but that returns a Promise. If we use \`map\` here we're going to map every response to a Promise, not to the actual json body inside the Promise. In simpler terms, we'll map will convert the Response to a Promise, when we want to convert a Response to the actual JSON. How do we deal with that situation?
+### Goal
 
-This is where \`mergeMap\` or \`flatMap\` come in (they are aliases for each other). When you don't want an Observable of Observables - you want a \`flatMap\`.
+Fetch the JSON off of the HTTP response.
 
+### New Operators
+* \`response.json()\`
+* \`flatMap\`
+
+### Existing Operators
+* \`fromFetch\`
 `;
-
 
 export const takeFiveRowsFromTheJSON = `
 ## Combining Operators
@@ -167,7 +172,6 @@ Now that you've pulled out the users who's name begins with an 'l', go ahead and
 * \`fromFetch\`
 * \`of\`
 `;
-
 
 export const subscribeAndHandleAnError = `
 ## Subscribe And Handle the Error
