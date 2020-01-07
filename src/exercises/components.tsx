@@ -151,16 +151,15 @@ export const TapToConsoleLog: React.FC = () => {
     };
     const [state, updateState] = useState<TappedInfo>({logged: false, nums: []});
 
-
-    const phonyLogger = {
-        log(...args: any[]) {
-            updateState(state => { return {logged: true, nums: state.nums}});
-            console.log(args);
-        },
-        error(...args: any[]) {}
-    }
-
     useEffect(() => {
+        const phonyLogger = {
+            log(...args: any[]) {
+                updateState(state => { return {logged: true, nums: state.nums}});
+                console.log(args);
+            },
+            error(...args: any[]) {}
+        }
+
         puzzles
             .logging(phonyLogger, of(1, 2, 3))
             .subscribe(num => updateState(state => {
@@ -169,7 +168,8 @@ export const TapToConsoleLog: React.FC = () => {
                     nums: [...state.nums, num]
                 };
             }));
-    }, [phonyLogger]);
+    }, []);
+
     const observedNumbersAsRows: number[][] = _.toArray(_.chunk(state.nums, 1));
     const expectedResult = { logged: true, nums: [1, 2, 3] };
 
