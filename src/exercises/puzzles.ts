@@ -49,12 +49,7 @@ export const findUsersNamed = (url: string): Observable<string> => {
 }
 
 export const findUniqueUsersNamed = (url: string): Observable<string> => {
-    return fromFetch(url).pipe(
-        flatMap(response => response.json()),
-        flatMap(body => of(...body)),
-        filter(entry => entry['user']?.['name'].startsWith('l')),
-        map(entry => entry['user']?.['name']),
-        distinct());
+    return empty();
 }
 
 export const subscribeAndHandleAnError = (console: Logger, observable: Observable<string>) => {
@@ -80,14 +75,7 @@ export const chainFetches = (firstUrl: string, secondUrl: _.CompiledTemplate): O
 }
 
 export const mergeToCombineRequests = (firstUrl: string, secondUrl: string): Observable<number> => {
-    return merge(fromFetch(firstUrl), fromFetch(secondUrl)).pipe(
-        flatMap(response => response.json()),
-        flatMap(body => of(...body)),
-        map(entry => entry['user']?.['screen_name']),
-        filter(name => name != null),
-        distinct(),
-        count()
-    );
+    return empty();
 }
 
 export const createYourOwnFetch = (url: string): Observable<any> => {
