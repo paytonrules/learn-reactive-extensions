@@ -11,11 +11,13 @@ To get the directions for each exercise click the links on the left. These exerc
 export const subscribe = `
 ## Subscribe
 
-This first exercise is meant to show you how to use the \`subscribe\` method on an Observable. The function subscribePuzzle is called with two parameters: an Observable of Numbers, and a React dispatch function. The Observable will "emit" one value which you capture via the subscribe function.
+### Goal
 
-The subscribe function takes one parameter - a callback, which is passed the value(s) emitted by the Observable. In this case it is just one value. Subscribe is how you get values out of an Observable. You can think of it like the \`then\` of a promise.
+Using the passed in observer send its result to callback (\`cb\`).
 
-For this first exercise you'll take the value emitted from the Observable, and send it back to the React App via the callback function.
+### Operators
+
+* \`subscribe\`
 `;
 
 export const takeTwo = `
