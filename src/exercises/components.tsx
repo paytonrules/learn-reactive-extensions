@@ -510,7 +510,7 @@ export const CreatingBehaviorSubjects: React.FC = () => {
             directions={directions.creatingBehaviorSubjects}
             headers={[['Results']]}
             data={arrayToRows(messages)}
-            expectedResult={["first", "one", "three"]}
+            expectedResult={["zero", "one", "three"]}
             result={messages}
         />
     )
