@@ -25,7 +25,7 @@ export const takeTwo = `
 
 ### Goal
 
-Return an observable that takes the last two values off the end of the observable.
+Return an observable that takes the first two values off the end of the observable.
 
 ### New Operators
 
@@ -315,7 +315,7 @@ export const completeASubscription = `
 
 ### Goal
 
-Use the complete function on an observer to complete subscription. Before you do make sure you emit one value ('value one').
+Use the complete function on an observer to complete a subscription. Before you do make sure you emit one value ('value one').
 
 ### Operators
 
