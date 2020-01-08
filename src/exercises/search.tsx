@@ -8,7 +8,7 @@ import '@material/layout-grid/dist/mdc.layout-grid.css';
 import _ from 'underscore';
 
 const nintendoUrl ="/nintendo"
-const twitterUrl ="/nintendo"
+const twitterUrl ="/twitter"
 
 function arrayToRows<T>(entries: T[]): T[][] {
     return _.toArray(_.chunk(entries, 1));
