@@ -1,6 +1,6 @@
 import 'whatwg-fetch';
 import { Observable, Observer, of, empty, merge, Subject, ReplaySubject, BehaviorSubject } from 'rxjs';
-import { take, map, flatMap, tap, filter, count, distinct, catchError} from 'rxjs/operators';
+import { take, map, flatMap, tap, filter, count, distinct, catchError, pluck} from 'rxjs/operators';
 import { fromFetch } from 'rxjs/fetch';
 import { Dispatch, SetStateAction } from 'react';
 
@@ -46,6 +46,10 @@ export const countValidUsers = (url: string): Observable<number> => {
 
 export const findUsersNamed = (url: string): Observable<string> => {
     return empty();
+}
+
+export const findUniqueUsersNamedPromiseEdition = (url: string): Promise<string[]> => {
+    return Promise.resolve([]);
 }
 
 export const findUniqueUsersNamed = (url: string): Observable<string> => {

@@ -56,6 +56,9 @@ const App: React.FC = () => {
                             <Link to="/findUsersNamed">
                                 <ListItem>Find Users By Name</ListItem>
                             </Link>
+                            <Link to="/findUniqueUsersNamedWithAnLPromiseVersion">
+                                <ListItem>Find Unique Users By Name (Promise)</ListItem>
+                            </Link>
                             <Link to="/findUniqueUsersNamedWithAnL">
                                 <ListItem>Find Unique Users By Name</ListItem>
                             </Link>
@@ -125,6 +128,9 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/findUsersNamed">
                         <ExerciseComponents.FindUsersNamed />
+                    </Route>
+                    <Route path="/findUniqueUsersNamedWithAnLPromiseVersion">
+                        <ExerciseComponents.FindUniqueUsersByNamePromiseEdition />
                     </Route>
                     <Route path="/findUniqueUsersNamedWithAnL">
                         <ExerciseComponents.FindUniqueUsersByName />
