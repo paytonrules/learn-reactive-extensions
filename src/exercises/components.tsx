@@ -283,25 +283,18 @@ export const FindUsersNamed: React.FC = () => {
     }, [])
 
     const expectedUserNames: string[] = [
-        'liebes engelchen',
-        'luping74',
-        "lae♡ˡᵒᵛᵉ⁴ᵉᵛᵃ",
-        'luping74',
-        "l'Olonnais Zero",
-        "luke @ comic writing",
-        "leslie ✿",
-        "la la layo🌸",
-        "lesbian rights! ⚡️🍻",
-        "lili™",
-        "luna 🌈🐸👖 @ ANIMAL CROSSING PLS",
-        "liebes engelchen",
-        "local dumpster fire",
-        "livyathan",
-        "liebes engelchen",
-        "lili™",
-        "liam wallace",
-        "liebes engelchen",
-        "liebes engelchen"
+        "noah",
+        "negative",
+        "nibiruBzH - #E3CaroJu 🎮",
+        "nACABun",
+        "nick_haskell▧",
+        "nugget",
+        "nACABun",
+        "n3rdabl3.",
+        "nACABun",
+        "noah",
+        "nusi",
+        "nuzesy"
     ];
     const userNamesAsRows: number[][] = _.toArray(_.chunk(userNames, 1))
 
@@ -325,20 +318,16 @@ export const FindUniqueUsersByName: React.FC = () => {
     }, [])
 
     const expectedUserNames: string[] = [
-        'liebes engelchen',
-        'luping74',
-        "lae♡ˡᵒᵛᵉ⁴ᵉᵛᵃ",
-        "l'Olonnais Zero",
-        "luke @ comic writing",
-        "leslie ✿",
-        "la la layo🌸",
-        "lesbian rights! ⚡️🍻",
-        "lili™",
-        "luna 🌈🐸👖 @ ANIMAL CROSSING PLS",
-        "local dumpster fire",
-        "livyathan",
-        "liam wallace"
-    ];
+        "noah",
+        "negative",
+        "nibiruBzH - #E3CaroJu 🎮",
+        "nACABun",
+        "nick_haskell▧",
+        "nugget",
+        "n3rdabl3.",
+        "nusi",
+        "nuzesy"
+    ]
     const userNamesAsRows: number[][] = _.toArray(_.chunk(userNames, 1))
 
     return (

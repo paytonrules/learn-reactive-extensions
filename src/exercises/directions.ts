@@ -136,7 +136,7 @@ You can technically use just count here, but using filter first is a little more
 `;
 
 export const findUsersNamed = `
-## Find Users Named With 'l'
+## Find Users Named With 'n'
 
 ### Goal
 
@@ -155,7 +155,7 @@ Getting raw JSON data isn't very interesting. Using filter and map pull out the 
 `;
 
 export const findUniqueUsersNamed = `
-## Find Unique Users Named With 'l'
+## Find Unique Users Named With 'n'
 
 ### Goal
 
