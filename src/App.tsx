@@ -41,9 +41,6 @@ const App: React.FC = () => {
                             <Link to="/tapToConsoleLog">
                                 <ListItem>Logging</ListItem>
                             </Link>
-                            <Link to="/createYourOwnObservable">
-                                <ListItem>Create Your Own Observable</ListItem>
-                            </Link>
                             <Link to="/getTheJSON">
                                 <ListItem>Get the JSON</ListItem>
                             </Link>
@@ -67,6 +64,9 @@ const App: React.FC = () => {
                             </Link>
                             <Link to="/convertSuccessToError">
                                 <ListItem>Convert A Successful Fetch Into An Error</ListItem>
+                            </Link>
+                            <Link to="/createYourOwnObservable">
+                                <ListItem>Create Your Own Observable</ListItem>
                             </Link>
                             <Link to="/chainFetches">
                                 <ListItem>Chain Fetches</ListItem>

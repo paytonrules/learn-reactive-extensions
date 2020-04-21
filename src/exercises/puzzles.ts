@@ -1,6 +1,6 @@
 import 'whatwg-fetch';
 import { Observable, Observer, of, empty, merge, Subject, ReplaySubject, BehaviorSubject } from 'rxjs';
-import { take, map, flatMap, tap, filter, count, distinct, catchError} from 'rxjs/operators';
+import { take, map, flatMap, tap, filter, count, distinct, catchError, pluck} from 'rxjs/operators';
 import { fromFetch } from 'rxjs/fetch';
 import { Dispatch, SetStateAction } from 'react';
 
@@ -25,10 +25,6 @@ export const mapStatus = (invalidUrl: string): Observable<number> => {
 }
 
 export const logging = (console: Logger, observable: Observable<number>): Observable<number> => {
-    return empty();
-}
-
-export const createYourOwnObservable = (): Observable<number> => {
     return empty();
 }
 
@@ -60,6 +56,10 @@ export const catchErrorEmitsASuccessMessage = (observable: Observable<any>): Obs
 }
 
 export const convertSuccessfulFetchIntoError = (url: string): Observable<any> => {
+    return empty();
+}
+
+export const createYourOwnObservable = (): Observable<number> => {
     return empty();
 }
 
