@@ -12,6 +12,10 @@ probably want to click it's url to open it in a new browser tab, as it's pretty 
 and you can start working on the exercises. All told it takes about 3 minutes to get up and running, not counting signing in with
 Github.  See the screencast below:
 
+
+![Screencast Of Setup](./ReactiveXGif.gif)
+
+
 Gitpod only requires a Github account, so setting up should be easy and you should be familiar with the editor 
 if you've ever used Visual Studio Code. Futher directions are found on the home page of the first page of the Reactive Exercises.
 
