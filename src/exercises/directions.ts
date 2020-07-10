@@ -103,10 +103,8 @@ export const takeFiveRowsFromTheJSON = `
 ### Goal
 Take the first five entries of the JSON response to the passed in URL. Fetch will emit one, 3000 line, JSON object. This requires combining operators.
 
-### New Operators
-* pipe - Allows running one filter after the other in a concise syntax.
-
 ### Existing Operators
+* pipe 
 * flatMap
 * tap (to stepwise debug)
 * take
