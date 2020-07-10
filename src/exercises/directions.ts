@@ -1,7 +1,7 @@
 export const directions = `
 ## Directions
 
-The exercises here are meant to take you from understanding a little about RxJS to using the tool effectively in an app. It is done through a series of puzzles, which are located in the directory \`src/exercises/puzzles.ts\`. Inside that file you'll see a series of functions with names like \`subscribePuzzle\`. Those names correspond to the exercises on the left of this web app. So the \`subscribePuzzle\` function must be completed to pass the \`Subscribe\` exercise on the left. If you run this application with the provided docker-compose setup it will automatically refresh on save, so you will see the results immediately. You should not need to look at the corresponding React components to complete the exercises. If you get stuck google, ask quesetions, pair. There is no such thing as cheating, and reactive extensions can be very confusing at first.
+The exercises here are meant to take you from understanding a little about RxJS to using the tool effectively in an app. It is done through a series of puzzles, which are located in the directory \`src/exercises/puzzles.ts\`. Inside that file you'll see a series of functions with names like \`subscribe\`. Those names correspond to the exercises on the left of this web app. So the \`subscribe\` function must be completed to pass the \`Subscribe\` exercise on the left. If you run this application with the provided setup from the README, it will automatically refresh on save, so you will see the results immediately. You should not need to look at the corresponding React components to complete the exercises. If you get stuck google, ask questions, pair. There is no such thing as cheating, and reactive extensions can be very confusing at first.
 
 To get the directions for each exercise click the links on the left. These exercises are meant to be done in order, as the get progressively more difficult as they progress. So why don't you click the Subscribe exercise and get started!
 
@@ -265,7 +265,7 @@ Don't use the \`fromFetch\` or \`fromPromise\` but instead create and return an 
 ### New Operators
 
 * \`Observable.create\` - you'll need to specify the observer type
-`
+`;
 
 export const creatingBehaviorSubjects = `
 ## Using Subjects
