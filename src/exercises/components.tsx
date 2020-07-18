@@ -395,7 +395,7 @@ export const ConvertSuccessIntoErrorWithThrow: React.FC = () => {
             directions={directions.convertSuccessfulFetchIntoError}
             headers={[['Error Message']]}
             data={[[errorMessage]]}
-            expectedResult={'Not Found'}
+            expectedResult={404}
             result={errorMessage} />
     )
 }
@@ -471,7 +471,7 @@ export const CreateYourOwnFetch: React.FC = () => {
             directions={directions.createYourOwnFetch}
             headers={[['Results']]}
             data={arrayToRows(messages)}
-            expectedResult={['jojade74', 'Not Found']}
+            expectedResult={['jojade74', 404]}
             result={messages}
         />
     )
