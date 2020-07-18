@@ -296,7 +296,7 @@ export const FindUsersNamed: React.FC = () => {
         "nusi",
         "nuzesy"
     ];
-    const userNamesAsRows: number[][] = _.toArray(_.chunk(userNames, 1))
+    const userNamesAsRows: string[][] = _.toArray(_.chunk(userNames, 1))
 
     return (
         <ExerciseComponent
@@ -328,7 +328,7 @@ export const FindUniqueUsersByName: React.FC = () => {
         "nusi",
         "nuzesy"
     ]
-    const userNamesAsRows: number[][] = _.toArray(_.chunk(userNames, 1))
+    const userNamesAsRows: string[][] = _.toArray(_.chunk(userNames, 1))
 
     return (
         <ExerciseComponent
