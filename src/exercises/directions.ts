@@ -208,7 +208,7 @@ export const convertSuccessfulFetchIntoError = `
 
 ### Goal
 
-By default \`fromFetch\` will emit a successful response in the event of 404 or other HTTP failures. Many other libraries will emit an error in that case, completing the subscription. In this puzzle use \`fromFetch\` to make the web request, but map the responses statusText to an error.
+By default \`fromFetch\` will emit a successful response in the event of 404 or other HTTP failures. Many other libraries will emit an error in that case, completing the subscription. In this puzzle use \`fromFetch\` to make the web request, but map the responses status to an error.
 
 ### New Operators
 * \`response\` - use the response object's other methods to determine the error message.
@@ -258,7 +258,7 @@ export const createYourOwnFetch = `
 
 ### Goal
 
-Don't use the \`fromFetch\` or \`fromPromise\` but instead create and return an Observable using that wraps the built in fetch function \`Observalbe.create\`. Your observable should always emit the json blob instead of the response object, and should emit an error with the status text when the response is not 'ok'. If you do this right you'll get two results on the page.
+Don't use the \`fromFetch\` or \`fromPromise\` but instead create and return an Observable using that wraps the built in fetch function \`Observalbe.create\`. Your observable should always emit the json blob instead of the response object, and should emit an error with the status code when the response is not 'ok'. If you do this right you'll get two results on the page.
 
 ### New Operators
 
